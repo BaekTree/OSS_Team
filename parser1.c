@@ -64,10 +64,10 @@ int main() {
     const char s[2] = " ";
     int tCounter = 0;
 
-    // startPinter + tokens length = endPointer
-    int startPointer = 0;
-    int endPointer;
-    int nextPointer;
+    // startPinter + tokens length = endCursor
+    int startCursor = 0;
+    int endCursor;
+    int nextCursor;
     int tokenLen;
 
     // get the first token
@@ -77,14 +77,14 @@ int main() {
     while( token != NULL ) {
         tCounter++; // token counter
         tokenLen = strlen(token);
-        endPointer = startPointer + tokenLen;
-        nextPointer = endPointer + 1;        
-        printf( " %s   %d %d %c\n", token, startPointer, endPointer, data[nextPointer]);
+        endCursor = startCursor + tokenLen;
+        nextCursor = endCursor + 1;        
+        printf( " %s   %d %d %c\n", token, startCursor, endCursor, data[nextCursor]);
 
 
 
         token = strtok(NULL, s);
-        startPointer = nextPointer;
+        startCursor = nextCursor;
     }
 
     //특수 문자 인식 필요
@@ -97,7 +97,7 @@ int main() {
     이렇게 하면 { 안에  {가 있어도 계속해서 만들면서 내려가기 때문에 좋다}}
     단 닫는 }를 만났을 때 거슬러 올라가면서 오브젝트를 개수를 카운트 하고 미완성된 오브젝트를 완성시켜줘야될 필요가 있다.
     */
-   
+
     printf("\nEnd of Program\n");
 
     free(data);
