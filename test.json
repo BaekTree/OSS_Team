@@ -4,8 +4,8 @@
     "description": "Minimalistic JSON parser/tokenizer in C. It can be easily integrated into resource-limited or embedded projects",
     "repository":
     {
-    "type": "git",
-    "url": "https://github.com/zserge/jsmn.git"
+        "type": "git",
+        "url": "https://github.com/zserge/jsmn.git"
     },
     "frameworks": "*",
     "platforms": "*",
