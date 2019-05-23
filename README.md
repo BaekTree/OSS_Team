@@ -5,6 +5,7 @@ Project Members are
 
 21200532 Lee Sungmin
 21800662 Susanna Jung
+21500850 
 
 학번 이름 써주세요 :)
 
