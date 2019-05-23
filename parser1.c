@@ -30,24 +30,6 @@ int main() {
     int length = 0; //total length
     int nos = 0; // number of strings
 
-    // reading file by word(string)
-    // while (fscanf(fp, "%s", buffer) > 0)
-    // {
-    //     // memory reallocation & string copy
-    //     data = (char *) realloc(data, strlen(data) + strlen(buffer));
-
-    //     if (length > 1) {
-    //         strcat(data, " ");
-    //         strcat(data, buffer);
-    //     }
-    //     else {
-    //         strcpy(data, buffer);
-    //     }
-    //     length += strlen(buffer) + 1;
-    //     nos++;
-    // }
-    // length = strlen(data)+1;
-
     // reading file by character
     int ch;
     // for (int i = 0; (i < (sizeof(buffer)-1) && ((ch = fgetc(fp)) != EOF) && (ch != '\n')); i++){
@@ -77,69 +59,105 @@ int main() {
     // tArr = (tok_t*)malloc(1 * sizeof(tArr));
 
     //not dynamic
-    struct tok_t *tArr[50];
+    tok_t * tArr[50];
     // 구조체 포인터 배열 전체 크기에서 요소(구조체 포인터)의 크기로 나눠서 요소 개수를 구함
-    for (int i = 0; i < sizeof(tArr) / sizeof(struct tok_t *); i++)    // 요소 개수만큼 반복
+    for (int i = 0; i < sizeof(tArr) / sizeof(tok_t *); i++)    // 요소 개수만큼 반복
     {
         tArr[i] = malloc(sizeof(tok_t));    // 각 요소에 구조체 크기만큼 메모리 할당
     }
 
-
-    // //string token and tokenizing character
-    // char *token;
-    // const char s[2] = " ";
-    // int tCounter = 0;
-
-    // // startPinter + tokens length = endCursor
     int startCursor = 0;
     int endCursor;
-    // int tokenLen;
+    int tsize = 0;
+    int ntok = 0;
 
-    // // get the first token
-    // token = strtok(data, s);
-    // // walk through other tokens
-    // while( token != NULL ) {
-    //     tCounter++; // token counter
-    //     tokenLen = strlen(token);
-    //     endCursor = startCursor + tokenLen;
-    //     printf( " %s   %d %d\n", token, startCursor, endCursor);
-
-
-    //     token = strtok(NULL, s);
-    //     startCursor = endCursor + 1;
-    // }
+    int cbcounter = 0;
+    int sbcounter = 0;
 
     for (int i = 1; i < length; i++) {
         // start index marked when data[i] != '\n' and ' ' and '\t'
-        if(data[i] != ' ' && data[i] != '\n' && data[i] != ' \t') {
+        if(data[i] != ' ' && data[i] != '\n' && data[i] != '\t') {
             startCursor = i;
             // token string (mostly)
             if(data[i] == '\"') {
                 // check if it is \" character
                 if (data[i-1] != '\\'){
-                    startCursor++;
+                    startCursor++; //start index does not include first "
                     for (int j = startCursor; ;j++){
-                        if (data[j] == "\""){
+                        if (data[j] == '\"'){
                             endCursor = j;
+                            i = j; //i++ will be happen at upper "for" condition
                             break;
                         }
                     }
-
+                    if (data[i+1] == ':'){
+                        if (cbcounter == 0 || sbcounter == 0) {
+                            tsize = 1;
+                            tArr[ntok]->start = startCursor;
+                            tArr[ntok]->end = endCursor;
+                            tArr[ntok]->size = tsize;
+                            tsize = 0;
+                            ntok++;
+                        }
+                        else { // if it is in the object or array size +1
+                            tsize++;
+                        }                        
+                    }
+                    else {
+                        if (cbcounter == 0 || sbcounter == 0) {
+                            tsize = 0;
+                            tArr[ntok]->start = startCursor;
+                            tArr[ntok]->end = endCursor;
+                            tArr[ntok]->size = tsize;
+                            ntok++;
+                        } // else nothing
+                    }
                 }
+                else continue;
             }
             // object
-            else if (data[i] == '{'){
-
+            else if (data[i] == '{' && sbcounter == 0){
+                // startCursor = i;
+                cbcounter++;
+                if (cbcounter == 1) {
+                    tArr[ntok]->start = startCursor;
+                } // else nothing is counter > 1
             }
+            else if (data[i] == '}' && sbcounter == 0  && cbcounter > 0) {
+                cbcounter--;
+                if (cbcounter == 0) {
+                    tArr[ntok]->size = tsize; //
+                    tArr[ntok]->end = endCursor;
+                    i = tArr[ntok]->start + 1;
+                    ntok++;
+                    tsize = 0;
+                } //else nothing
+            }
+
             // array
-            else if (data[i] == '[') {
-
+            else if (data[i] == '[' && cbcounter == 0) {
+                // startCursor = i;
+                sbcounter++;
+                if (sbcounter == 1) {
+                    tArr[ntok]->start = startCursor;
+                } // else nothing is counter > 1
             }
+            else if (data[i] == ']' && cbcounter == 0) {
+                sbcounter--;
+                if (sbcounter == 0) {
+                    tArr[ntok]->size = tsize; //
+                    tArr[ntok]->end = endCursor;
+                    i = tArr[ntok]->start + 1;
+                    ntok++;
+                    tsize = 0;
+                } //else nothing
+            }
+
             // true false etc
             else if (data[i] == '0'){
-            } 
+            }
             // numeric 
-            else if (data[i] == 'f'){
+            else if (data[i]){
             }
         }
 
