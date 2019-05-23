@@ -1,9 +1,10 @@
 This is the 2019 OSS TEAM PROJECT
 
-Our Team Number is 2
+Our Team Number is 4
 Project Members are
 
 21200532 Lee Sungmin
+21800662 Susanna Jung
 
 학번 이름 써주세요 :)
 
