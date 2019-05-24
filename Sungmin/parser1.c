@@ -134,7 +134,7 @@ int main() {
                 cbcounter--;
                 if (cbcounter == 0) {
                     tArr[ntok]->size = tsize; //
-                    tArr[ntok]->end = i; // +1?
+                    tArr[ntok]->end = i+1; // +1?
                     i = tArr[ntok]->start + 1;
                     ntok++;
                     tsize = 0;
@@ -153,7 +153,7 @@ int main() {
                 sbcounter--;
                 if (sbcounter == 0) {
                     tArr[ntok]->size = tsize; //
-                    tArr[ntok]->end = endCursor;
+                    tArr[ntok]->end = i+1;
                     i = tArr[ntok]->start + 1;
                     ntok++;
                     tsize = 0;
@@ -169,6 +169,17 @@ int main() {
             }
         }
     }
+
+    for (int i = 0; i < ntok; i++) {
+        printf("[%3d] ", i );
+        for (int j = tArr[i]->start; j < tArr[i]->end; j++ ) {
+            printf("%c", data[j]);
+        }
+        printf (" (size=%d, %d~%d)\n",tArr[i]->size, tArr[i]->start, tArr[i]->end);
+        
+    }
+
+
 
     printf("\nEnd of Program\n");
 
