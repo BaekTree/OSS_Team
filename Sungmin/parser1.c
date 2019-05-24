@@ -110,7 +110,14 @@ int main() {
                             tArr[ntok]->end = endCursor;
                             tArr[ntok]->size = tsize;
                             ntok++;
-                        } // else nothing
+                        } 
+                        else if (sbcounter > 0) {
+                            //name과 value가 페어가 아니라면
+                            if ((data[startCursor-2] != ':') || (data[startCursor-3] != ':') || (data[startCursor-4] != ':')) {
+                                tsize++;
+                            }
+                            // else 페어이기 때문에 페어일 경우 값을 가지지 않는다.
+                        } //else nothing
                     }
                 }
                 else continue;
@@ -142,7 +149,7 @@ int main() {
                     tArr[ntok]->start = startCursor;
                 } // else nothing is counter > 1
             }
-            else if (data[i] == ']' && cbcounter == 0) {
+            else if (data[i] == ']' && cbcounter == 0 && sbcounter > 0) {
                 sbcounter--;
                 if (sbcounter == 0) {
                     tArr[ntok]->size = tsize; //
@@ -162,12 +169,6 @@ int main() {
             }
         }
     }
-
-    //특수 문자 인식 필요
-    //약속어 인식 필요 
-    //key냐 value냐 인식 필요 (flag로? 아니면 :로?)
-    //"가 스트링의 시작이면 ", 로 끝나는 단어를 만날 때까지 찾아야함 그러나 ", 앞에 \가 오면 안됨
-    //"" , : 같은 문자 제거 (특문이랑 구분 필요)
 
     printf("\nEnd of Program\n");
 
