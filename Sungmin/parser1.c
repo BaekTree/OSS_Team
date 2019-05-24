@@ -25,7 +25,7 @@ int main() {
     char *data = (char *)malloc(maxLen * sizeof(char));
 
     //file open
-    fp = fopen("test.json", "r");
+    fp = fopen("test2.json", "r");
     int length = 0; //total length
     int nos = 0; // number of strings
 
@@ -58,7 +58,7 @@ int main() {
     // tArr = (tok_t*)malloc(1 * sizeof(tArr));
 
     //not dynamic
-    tok_t * tArr[40];
+    tok_t * tArr[100];
     // 구조체 포인터 배열 전체 크기에서 요소(구조체 포인터)의 크기로 나눠서 요소 개수를 구함
     for (int i = 0; i < sizeof(tArr) / sizeof(tok_t *); i++)    // 요소 개수만큼 반복
     {
@@ -100,18 +100,22 @@ int main() {
                             i++;
                         }
                         else { // if it is in the object or array size +1
-                            tsize++;
+                            //inner object or array size does not count
+                            if (cbcounter < 2) tsize++;
+                            //else nothing
                         }                        
                     }
                     else {
                         if (cbcounter == 0 && sbcounter == 0) {
-                            tsize = 0;
+                            // tsize = 0;
                             tArr[ntok]->start = startCursor;
                             tArr[ntok]->end = endCursor;
                             tArr[ntok]->size = tsize;
+                            tsize = 0;
                             ntok++;
                         } 
-                        else if (sbcounter > 0) {
+                        // else if (sbcounter > 0) {
+                        else if (sbcounter == 1) {
                             //name과 value가 페어가 아니라면
                             if ((data[startCursor-2] != ':') || (data[startCursor-3] != ':') || (data[startCursor-4] != ':')) {
                                 tsize++;
@@ -122,6 +126,7 @@ int main() {
                 }
                 else continue;
             }
+
             // object
             else if (data[i] == '{' && sbcounter == 0){
                 // startCursor = i;
@@ -165,7 +170,7 @@ int main() {
             }
             // numeric 
             else if (data[i]){
-                double num = 1.234E+11;
+                //double num = 1.234E+11;
             }
         }
     }
