@@ -8,13 +8,16 @@
         "url": "https://github.com/zserge/jsmn.git",
         "test": {
             "test2": "testing2",
-            "test3": "testing3"
+            "test3": 1024
         }
     }, 
     "frameworks": "*", 
     "platforms": true, 
     "examples": [ 
         "example/*.c", true, false
+    ], 
+    "samples": [ 
+        1, 2, 3, 4
     ], 
     "exclude": "test"    
 }
