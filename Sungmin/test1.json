@@ -12,9 +12,9 @@
         }
     }, 
     "frameworks": "*", 
-    "platforms": "*", 
+    "platforms": true, 
     "examples": [ 
-        "example/*.c"
+        "example/*.c", true, false
     ], 
     "exclude": "test"    
 }
