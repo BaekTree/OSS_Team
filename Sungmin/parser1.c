@@ -65,7 +65,6 @@ int main(int argc, char *argv[]) {
     {
         token_arr[i] = malloc(sizeof(tok_t));    // 각 요소에 구조체 크기만큼 메모리 할당
     }
-
     int start_cursor = 0;       // start index of the token
     int end_cursor;             // end index of the token
     int token_size = 0;         // size of token ( :pairs )
@@ -121,11 +120,11 @@ int main(int argc, char *argv[]) {
                         } 
                         // else if (sbracket_counter > 0) {
                         else if (sbracket_counter == 1 && cbracket_counter == 0) {
-                            //name과 value가 페어가 아니라면
+                            //name and value is not pair
                             if ((data[start_cursor-2] != ':') || (data[start_cursor-3] != ':') || (data[start_cursor-4] != ':')) {
                                 token_size++;
                             }
-                            // else 페어이기 때문에 페어일 경우 값을 가지지 않는다.
+                            // else if the string value is pair with 'name'(key) it does not increase the size
                         } //else nothing
                     }
                 }
