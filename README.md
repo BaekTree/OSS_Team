@@ -5,7 +5,9 @@
 ## Team 4 Members  
 21200532 Lee Sungmin  
 21800662 Susanna Jung  
-21500850  
+21500850 Jaehyung Baek<br>
+21400150 YeEun Kim
+
   
   
 ## To run our project
