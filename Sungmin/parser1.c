@@ -18,16 +18,6 @@ typedef struct {
     int size; // Number of child (nested) tokens
 } tok_t;
 
-// Returns true (non-zero) if character-string parameter represents a signed or unsigned floating-point number. Otherwise returns false (zero).
-int isNumeric (const char * s)
-{
-    if (s == NULL || *s == '\0' || isspace(*s))
-      return 0;
-    char * p;
-    strtod (s, &p);
-    return *p == '\0';
-}
-
 int main(int argc, char *argv[]) {
     FILE *fp;
     const int maxLen = 256;
@@ -192,10 +182,8 @@ int main(int argc, char *argv[]) {
                     token_size = 0;
                 } //else nothing
             }
-            
-            
             // 아래 두 벨류 토큰들은 어레이와 오브젝트 안에 있는지 밖에 있는지에 따라서 토크나이징을 할지 안할지 결정된다.
-            // true false etc
+            // true false numeric
             else if ((data[i] == 't' || data[i] == 'f') || (isdigit(data[i]) || data[i] == '-')) {  // Starts with t or f
                 // check if it is primitive boolean type
                 if (data[i] == 't' && data[i+1] == 'r' && data[i+2] == 'u' && data[i+3] == 'e') {
@@ -224,7 +212,6 @@ int main(int argc, char *argv[]) {
                         }
                     } 
                 }
-
                 if (is_primitive == 1) {
                     //just value
                     if (cbracket_counter == 0 && sbracket_counter == 0) {
@@ -246,7 +233,6 @@ int main(int argc, char *argv[]) {
             }
         }
     }
-
 
     for (int i = 0; i < num_of_token; i++) {
         printf("[%3d] ", i );
