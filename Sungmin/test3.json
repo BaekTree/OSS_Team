@@ -1,0 +1,6 @@
+{ 
+    "name": "jsmn",
+    "frameworks": "*", 
+    "platforms": true,
+    "exclude": "test"    
+}
