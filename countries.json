@@ -1,0 +1,70 @@
+{
+    "countries": [
+        {
+            "Korea": {
+                "Capital": "Seoul",
+                "Language": [ "Korean" ],
+                "GDP": 1.934,
+                "Population": "51.47 million",
+                "Currency": "KRW",
+                "Legislature": [
+                    "Republican system", "Liberal democracy", "A single state", "The presidential system"
+                ],
+                "Continent": "Asia"
+            }
+        },
+        {
+            "China": {
+                "continent": "Asia",
+                "capital": "Beijing",
+                "GDP": 18.9758,
+                "population": "1.386 billion",
+                "language": [ "Standard Chinese" ],
+                "currency": "CNY",
+                "Legislature": [
+                    "Republican system", "One-party socialism"
+                ]
+            }
+        },
+        {
+            "Brazil": {
+                "continent": "South America",
+                "capital": "Brasilia",
+                "GDP": 2.3668,
+                "population": "205 million",
+                "language": [ "Portuguese" ],
+                "currency": "BRL",
+                "Legislature": [
+                    "Republic system", "Federal system", "The presidential system"
+                ]
+            }
+        }, 
+        {
+            "Canada": {
+                "continent": "North America",
+                "capital": "Ottawa",
+                "GDP": 1.518,
+                "population": "35.85 million",
+                "language": [ "English, Franch" ],
+                "currency": "CAD",
+                "Legislature": [
+                    "Monarchy (United Kingdom)", "Democratic system", "Constitutional system", "Federal system", "House of Commons", "Parliamentary system"
+                ]
+            }
+        },
+        {
+            "United States of America": {
+                "continent": "North America",
+                "capital": "Washington, D.C",
+                "GDP": 18.1247,
+                "population": "322.66 million",
+                "language": [ "English" ],
+                "currency": "CAD",
+                "Legislature": [
+                    "Republican system", "Democratic system", "Constitutional law", "Federal system", "The presidential system"
+                ]
+            }
+        }
+    ]
+}
+

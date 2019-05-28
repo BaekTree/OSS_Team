@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
     // token_arr = (tok_t*)malloc(50 * sizeof(token_arr));
 
     //not dynamic
-    tok_t * token_arr[100];
+    tok_t * token_arr[1024];
     // 구조체 포인터 배열 전체 크기에서 요소(구조체 포인터)의 크기로 나눠서 요소 개수를 구함
     for (int i = 0; i < sizeof(token_arr) / sizeof(tok_t *); i++)    // 요소 개수만큼 반복
     {
