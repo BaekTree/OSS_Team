@@ -52,16 +52,12 @@ int main(int argc, char *argv[]) {
     }
     buffer[length] = '\0';
     length++;
-
-    // printf("The length of string is : %d\n", length);
-    // printf("The string is : \n%s\n", data);
     fclose(fp);
 
     //dynamic structure array
     // struct tok_t *token_arr;
     // token_arr = (tok_t*)malloc(50 * sizeof(token_arr));
 
-    
     //not dynamic
     tok_t * token_arr[100];
     // 구조체 포인터 배열 전체 크기에서 요소(구조체 포인터)의 크기로 나눠서 요소 개수를 구함
@@ -73,10 +69,8 @@ int main(int argc, char *argv[]) {
     int start_cursor = 0;       // start index of the token
     int end_cursor;             // end index of the token
     int token_size = 0;         // size of token ( :pairs )
-    int num_of_token = 0;   // number of tokens
-
-    int is_primitive;   // flag to identify
-
+    int num_of_token = 0;       // number of tokens
+    int is_primitive;           // flag to identify
     int cbracket_counter = 0;   // { } counter
     int sbracket_counter = 0;   // [ ] counter
 
@@ -137,7 +131,6 @@ int main(int argc, char *argv[]) {
                 }
                 else continue;
             }
-            
             // object
             else if (data[i] == '{' && sbracket_counter == 0){
                 cbracket_counter++;
@@ -233,7 +226,7 @@ int main(int argc, char *argv[]) {
             }
         }
     }
-
+    // print out
     for (int i = 0; i < num_of_token; i++) {
         printf("[%3d] ", i );
         for (int j = token_arr[i]->start; j < token_arr[i]->end; j++ ) {
@@ -247,16 +240,12 @@ int main(int argc, char *argv[]) {
         else type = "PRIMITIVE";
         printf (" (size=%d, %d~%d, JSMN_%s)\n",token_arr[i]->size, token_arr[i]->start, token_arr[i]->end, type);
     }
-
-    printf("\nEnd of Program\n");
-
+    // memory free
     free(data);
     for (int i = 0; i < sizeof(token_arr) / sizeof(struct tok_t *); i++)
     {
         free(token_arr[i]);
     }
-    
-
     return 0;
 }
 
