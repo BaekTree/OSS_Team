@@ -253,7 +253,13 @@ int main(int argc, char *argv[]) {
         for (int j = token_arr[i]->start; j < token_arr[i]->end; j++ ) {
             printf("%c", data[j]);
         }
-        printf (" (size=%d, %d~%d)\n",token_arr[i]->size, token_arr[i]->start, token_arr[i]->end);
+        char * type;
+        if (token_arr[i]->type == 0) type = "UNDEFINED";
+        else if (token_arr[i]->type == 1) type = "OBJECT";
+        else if (token_arr[i]->type == 2) type = "ARRAY";
+        else if (token_arr[i]->type == 3) type = "STRING";
+        else type = "PRIMITIVE";
+        printf (" (size=%d, %d~%d, JSMN_%s)\n",token_arr[i]->size, token_arr[i]->start, token_arr[i]->end, type);
     }
 
     printf("\nEnd of Program\n");
