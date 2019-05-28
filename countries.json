@@ -15,56 +15,149 @@
         },
         {
             "China": {
-                "Capital": "Beijing",
-                "Language": [ "Standard Chinese" ],
+                "continent": "Asia",
+                "capital": "Beijing",
                 "GDP": 18.9758,
-                "Population": "1.386 billion",
-                "Currency": "CNY",
+                "population": "1.386 billion",
+                "language": [ "Standard Chinese" ],
+                "currency": "CNY",
                 "Legislature": [
                     "Republican system", "One-party socialism"
-                ],
-                "Continent": "Asia"
+                ]
             }
         },
         {
             "Brazil": {
-                "Capital": "Brasilia",
-                "Language": [ "Portuguese" ],
+                "continent": "South America",
+                "capital": "Brasilia",
                 "GDP": 2.3668,
-                "opulation": "205 million",
-                "Currency": "BRL",
+                "population": "205 million",
+                "language": [ "Portuguese" ],
+                "currency": "BRL",
                 "Legislature": [
                     "Republic system", "Federal system", "The presidential system"
-                ],
-                "Continent": "South America"
+                ]
             }
         }, 
         {
             "Canada": {
-                "Capital": "Ottawa",
-                "Language": [ "English, Franch" ],
+                "continent": "North America",
+                "capital": "Ottawa",
                 "GDP": 1.518,
-                "Population": "35.85 million",
-                "Currency": "CAD",
+                "population": "35.85 million",
+                "language": [ "English, Franch" ],
+                "currency": "CAD",
                 "Legislature": [
                     "Monarchy (United Kingdom)", "Democratic system", "Constitutional system", "Federal system", "House of Commons", "Parliamentary system"
-                ],
-                "Continent": "North America"
+                ]
             }
         },
         {
             "United States of America": {
-                "Capital": "Washington, D.C",
-                "Language": [ "English" ],
+                "continent": "North America",
+                "capital": "Washington, D.C",
                 "GDP": 18.1247,
-                "Population": "322.66 million",
-                "Currency": "CAD",
+                "population": "322.66 million",
+                "language": [ "English" ],
+                "currency": "CAD",
                 "Legislature": [
                     "Republican system", "Democratic system", "Constitutional law", "Federal system", "The presidential system"
-                ],
-                "Continent": "North America"
+                ]
             }
-        }
+        },
+        
+        {
+            "Japan": {
+                    "Capital": "Tokyo",
+                    "Language": [ "Japanese" ],
+                    "GDP": 5.749
+                    "Population": "12 million",
+                    "Currency": "Yen",
+                    "Legislature": ["National Diet", "House of Councillors", "House of Representatives" ],
+                    "Continent": "Asia"
+                    } 
+            },
+            {
+            "India": {
+                    "Capital": "New Delhi",
+                    "Language": ["Hindi", "English"],
+                    "GDP": "$11.468 trillion",
+                "Population": "1.3 billion",
+                    "Currency": "INR",
+                    "Legislature": [ "Parliament", "Rajya Sabha", "Lok Sabha" ],
+                    "Continent" : "Asia"
+                }
+            },
+            {
+            "Indonesia" : {
+                    "Capital": "Jakarta",
+                    "Language": "Indonesian",
+                    "GDP": "$3.740 trillion",
+                "Population": "23 million",
+                    "Currency": "IDR",
+                    "Legislature": [
+            "People's Consultative Assembly (MPR)", "Regional Representative Council (DPD)",  "People's Representative Council (DPR)"
+            ],
+                    "Continent": "Asia"
+                } 
+            },
+
+            {
+            "South Africa":  {
+                    "Capital": "Cape Town",
+                    "Language": [ "Zulu", "Xhosa", "Afrikaans" , "English" ],
+                    "GDP": 0.819
+                    "Population": "51.77 million",
+                    "Currency": "ZAR",
+                    "Legislature": [
+            "Parliament", "National Council", "National Assembly" ],
+                    "Continent": "Africa"
+                    } 
+            },
+
+
+            {
+              "Australia": {
+                    "Capital": "Canberra",
+                    "Language": [ "English" ],
+                    "GDP": 1.313,
+                    "Population": "25.37 million",
+                    "Currency": "AUD",
+                    "Legislature": [ "Parliament", "Senate", "House of Representatives" ],
+                    "Continent": "Australasia"
+                    }
+            } ,
+
+             {
+             "Argentina": {
+                    "Capital": "Buenos Aires",
+                    "Language": [ "Spanish" ],
+                    "GDP": 0.920209,
+                    "Population": "40.1 million",
+                    "Currency": "ARS",
+                    "Legislature": [
+            "Congress" , "Senate" , "Chamber of Deputies"
+            ],
+                    "Continent": "South America"
+                    }
+            },
+
+            {
+             "Peru": {
+                    "Capital": "Lima",
+                    "Language": [ "Spanish" ],
+                    "GDP": 0.458389,
+                    "Population": "32.49 million",
+                    "Currency": "PEN",
+                    "Legislature": [ "Congress of the Republic" ],
+                    "Continent": "South America"
+                    }
+            },
+
+        
+        
+        
+        
     ]
 }
 
