@@ -16,9 +16,9 @@
         {
             "China": {
                 "Capital": "Beijing",
+                "Language": [ "Standard Chinese" ],
                 "GDP": 18.9758,
                 "Population": "1.386 billion",
-                "Language": [ "Standard Chinese" ],
                 "Currency": "CNY",
                 "Legislature": [
                     "Republican system", "One-party socialism"
@@ -29,9 +29,9 @@
         {
             "Brazil": {
                 "Capital": "Brasilia",
+                "Language": [ "Portuguese" ],
                 "GDP": 2.3668,
                 "opulation": "205 million",
-                "Language": [ "Portuguese" ],
                 "Currency": "BRL",
                 "Legislature": [
                     "Republic system", "Federal system", "The presidential system"
@@ -42,9 +42,9 @@
         {
             "Canada": {
                 "Capital": "Ottawa",
+                "Language": [ "English, Franch" ],
                 "GDP": 1.518,
                 "Population": "35.85 million",
-                "Language": [ "English, Franch" ],
                 "Currency": "CAD",
                 "Legislature": [
                     "Monarchy (United Kingdom)", "Democratic system", "Constitutional system", "Federal system", "House of Commons", "Parliamentary system"
@@ -55,9 +55,9 @@
         {
             "United States of America": {
                 "Capital": "Washington, D.C",
+                "Language": [ "English" ],
                 "GDP": 18.1247,
                 "Population": "322.66 million",
-                "Language": [ "English" ],
                 "Currency": "CAD",
                 "Legislature": [
                     "Republican system", "Democratic system", "Constitutional law", "Federal system", "The presidential system"
