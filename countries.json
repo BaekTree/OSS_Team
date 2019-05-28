@@ -15,54 +15,54 @@
         },
         {
             "China": {
-                "continent": "Asia",
-                "capital": "Beijing",
+                "Capital": "Beijing",
                 "GDP": 18.9758,
-                "population": "1.386 billion",
-                "language": [ "Standard Chinese" ],
-                "currency": "CNY",
+                "Population": "1.386 billion",
+                "Language": [ "Standard Chinese" ],
+                "Currency": "CNY",
                 "Legislature": [
                     "Republican system", "One-party socialism"
-                ]
+                ],
+                "Continent": "Asia"
             }
         },
         {
             "Brazil": {
-                "continent": "South America",
-                "capital": "Brasilia",
+                "Capital": "Brasilia",
                 "GDP": 2.3668,
-                "population": "205 million",
-                "language": [ "Portuguese" ],
-                "currency": "BRL",
+                "opulation": "205 million",
+                "Language": [ "Portuguese" ],
+                "Currency": "BRL",
                 "Legislature": [
                     "Republic system", "Federal system", "The presidential system"
-                ]
+                ],
+                "Continent": "South America"
             }
         }, 
         {
             "Canada": {
-                "continent": "North America",
-                "capital": "Ottawa",
+                "Capital": "Ottawa",
                 "GDP": 1.518,
-                "population": "35.85 million",
-                "language": [ "English, Franch" ],
-                "currency": "CAD",
+                "Population": "35.85 million",
+                "Language": [ "English, Franch" ],
+                "Currency": "CAD",
                 "Legislature": [
                     "Monarchy (United Kingdom)", "Democratic system", "Constitutional system", "Federal system", "House of Commons", "Parliamentary system"
-                ]
+                ],
+                "Continent": "North America"
             }
         },
         {
             "United States of America": {
-                "continent": "North America",
-                "capital": "Washington, D.C",
+                "Capital": "Washington, D.C",
                 "GDP": 18.1247,
-                "population": "322.66 million",
-                "language": [ "English" ],
-                "currency": "CAD",
+                "Population": "322.66 million",
+                "Language": [ "English" ],
+                "Currency": "CAD",
                 "Legislature": [
                     "Republican system", "Democratic system", "Constitutional law", "Federal system", "The presidential system"
-                ]
+                ],
+                "Continent": "North America"
             }
         }
     ]
