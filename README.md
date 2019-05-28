@@ -1,8 +1,7 @@
-**2019 OSS TEAM PROJECT**  
+**JSON PARSER AND APPLICATION**  
+### 2019 OSS TEAM PROJECT
 =======
   
-# JSON PARSER AND APPLICATION  
-
 ## Team 4 Members  
 21200532 Lee Sungmin  
 21800662 Susanna Jung  
