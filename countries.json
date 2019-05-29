@@ -70,7 +70,7 @@
             "Japan": {
                     "Capital": "Tokyo",
                     "Language": [ "Japanese" ],
-                    "GDP": 5.749
+                    "GDP": 5.749,
                     "Population": "12 million",
                     "Currency": "Yen",
                     "Legislature": ["National Diet", "House of Councillors", "House of Representatives" ],
@@ -106,7 +106,7 @@
             "South Africa":  {
                     "Capital": "Cape Town",
                     "Language": [ "Zulu", "Xhosa", "Afrikaans" , "English" ],
-                    "GDP": 0.819
+                    "GDP": 0.819,
                     "Population": "51.77 million",
                     "Currency": "ZAR",
                     "Legislature": [
