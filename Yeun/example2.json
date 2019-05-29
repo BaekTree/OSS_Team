@@ -1,0 +1,17 @@
+{
+    "name": "yeun",
+    "today":
+    {
+        "weather": "rainy",
+        "emotion": ["happy", "drowsy"],
+        "ootd":{"up":"tee", "down": "skirt"},
+        "look": "good"
+    },
+    
+    "meal":
+    [
+        "apple", "pineapple", "pen"
+    ],
+ 
+    "bye": "goodbye"    
+}
