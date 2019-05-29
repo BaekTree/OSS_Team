@@ -153,7 +153,95 @@
                     "Continent": "South America"
                     }
             },
-
+            {
+                "Mexico": {
+                    "Capital": "Mexico Ciity",
+                    "Language": "Spanish",
+                    "GDP": 2.575,
+                    "Population": "132.32 million",
+                    "Currency": "MXN",
+                    "Legislature": [
+                        "Federal presidential constitutional republic"
+                    ],
+                    "Continent": "North America"
+                }
+            },
+            {
+                "Germany": {
+                    "Capital": "Berlin",
+                    "Language": "German",
+                    "GDP": 4.555,
+                    "Population": "83 million",
+                    "Currency": "EUR",
+                    "Legislature": [
+                        "Congress",
+                        "Upper Bundesrat",
+                        "Lower house Bundestag"
+                    ],
+                    "Continent": "Europe"
+                }
+            },
+            {
+                "Greece": {
+                    "Capital": "Athens",
+                    "Language": "Greek",
+                    "GDP": 0.3267,
+                    "Population": "10.76 million",
+                    "Currency": "EUR",
+                    "Legislature": [
+                        "Hellenic Parliament"
+                    ],
+                    "Continent": "Europe"
+                }
+            },
+            {
+                "New Zealand": {
+                    "Capital": "Wellington",
+                    "Language": [
+                        "English",
+                        "Maori",
+                        "NZ Sign Language"
+                    ],
+                    "GDP": 0.199,
+                    "Population": "1.96 million",
+                    "Currency": "NZD",
+                    "Legislature": [
+                        "Unitary parliamentary constitutional monarchy"
+                    ],
+                    "Continent": "Australasia"
+                }
+            },
+            {
+                "Cambodia": {
+                    "Capital": "Phnom Penh",
+                    "Language": [
+                        "Khmer"
+                    ],
+                    "GDP": 0.0702,
+                    "Population": "16.24 million",
+                    "Currency": "KHR",
+                    "Legislature": [
+                        "Unitary dominant party parliamentary elective constitutional monarchy",
+                        "one-party authoritarian dictatorship"
+                    ],
+                    "Continent": "Asia"
+                }
+            },
+            {
+                "United Kingdom": {
+                    "Capital": "London",
+                    "Language": [
+                        "English"
+                    ],
+                    "GDP": 3.028 ,
+                    "Population": "66.92 million",
+                    "Currency": "GBP",
+                    "Legislature": [
+                        "Unitary parliamentary constitutional monarchy"
+                    ],
+                    "Continent": "Europe"
+                }
+            } 
         
         
         
