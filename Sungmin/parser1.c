@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
     int cbracket_counter = 0;   // { } counter
     int sbracket_counter = 0;   // [ ] counter
 
-    for (int i = 1; i < length; i++) {
+    for (int i = 0; i < length; i++) {
         // start index marked when data[i] != '\n' and ' ' and '\t'
         if(data[i] != ' ' && data[i] != '\n' && data[i] != '\t') {
             start_cursor = i;
