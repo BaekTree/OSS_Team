@@ -18,6 +18,19 @@ typedef struct {
     int size; // Number of child (nested) tokens
 } tok_t;
 
+typedef struct {
+    char* country_name;
+    char* capital_name;
+    char language[4][30];
+    double gdp;
+    char* population;
+    char* currency;
+    char legislature[6][30];
+    char* continent;
+} country_t;
+
+
+
 void print_array(int num_of_t, tok_t *t_arr, char *data) {
     // print out
     for (int i = 0; i < num_of_t; i++) {
@@ -255,20 +268,7 @@ int main(int argc, char *argv[]) {
         }
     }
     print_array(num_of_token, token_arr, data);
-    // print out
-    // for (int i = 0; i < num_of_token; i++) {
-    //     printf("[%3d] ", i );
-    //     for (int j = token_arr[i].start; j < token_arr[i].end; j++ ) {
-    //         printf("%c", data[j]);
-    //     }
-    //     char * type;
-    //     if (token_arr[i].type == 0) type = "UNDEFINED";
-    //     else if (token_arr[i].type == 1) type = "OBJECT";
-    //     else if (token_arr[i].type == 2) type = "ARRAY";
-    //     else if (token_arr[i].type == 3) type = "STRING";
-    //     else type = "PRIMITIVE";
-    //     printf (" (size=%d, %d~%d, JSMN_%s)\n",token_arr[i].size, token_arr[i].start, token_arr[i].end, type);
-    // }
+
     // memory free
     free(data);
     free(token_arr);
@@ -276,5 +276,3 @@ int main(int argc, char *argv[]) {
     //return should be tok_t array for the application program
     return 0;
 }
-
-

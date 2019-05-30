@@ -297,6 +297,91 @@
                 ],
                 "Continent": "Europe"
             }
+        },
+        {
+            "United Kingdom": {
+                "Capital": "London",
+                "Language": [
+                    "English"
+                ],
+                "GDP": 3.028,
+                "Population": "66.92 million",
+                "Currency": "GBP",
+                "Legislature": [
+                    "Unitary parliamentary constitutional monarchy"
+                ],
+                "Continent": "Europe"
+            }
+        },
+        {
+            "Egypt": {
+                "Capital": "Cairo",
+                "Language": [
+                    "Arabic"
+                ],
+                "GDP": 1.396,
+                "Population": "94 million",
+                "Currency": "EGP",
+                "Legislature": [
+                    "Unitary semi-presidential republic",
+                    "House of Representatives"
+                ],
+                "Continent": "Africa"
+            }
+        },
+        {
+            "Morocco": {
+                "Capital": "Rabat",
+                "Language": [
+                    "Arabic",
+                    "Berber"
+                ],
+                "GDP": 0.332358,
+                "Population": "35 million",
+                "Currency": "MAD",
+                "Legislature": [
+                    "Parliament",
+                    "House of Councillors",
+                    "House of Representatives"
+                ],
+                "Continent": "Africa"
+            }
+        },
+        {
+            "Portugal": {
+                "Capital": "Lisbon",
+                "Language": "Portuguese",
+                "GDP": 0.340715,
+                "Population": "10 million",
+                "Currency": "EUR",
+                "Legislature": [
+                    " Unitary semi-presidential constitutional republic",
+                    "Assembly of the Republic"
+                ],
+                "Continent": "Europe"
+            }
+        },
+        {
+            "Republic of Turkey": {
+                "Capital": "Ankara",
+                "Language": [
+                    "Turkish",
+                    "Kurmanji",
+                    "Zaza",
+                    "Laz",
+                    "Kabardian-Cherkess",
+                    "Bosnian",
+                    "Syrian Arabic"
+                ],
+                "GDP": 2.274,
+                "Population": "82 million",
+                "Currency": "TRY",
+                "Legislature": [
+                    "Grand National Assembly",
+                    "Unitary presidential constitutional republic"
+                ],
+                "Continent": "Asia"
+            }
         }
     ]
 }
