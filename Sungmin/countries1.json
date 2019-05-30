@@ -17,6 +17,22 @@
                 ],
                 "Continent": "Asia"
             }
+        },
+        {
+            "China": {
+                "Capital": "Beijing",
+                "Language": [
+                    "Standard Chinese"
+                ],
+                "GDP": 18.9758,
+                "Population": "1.386 billion",
+                "Currency": "CNY",
+                "Legislature": [
+                    "Republican system",
+                    "One-party socialism"
+                ],
+                "Continent": "Asia"
+            }
         }
     ]
 }

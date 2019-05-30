@@ -1,5 +1,5 @@
 {
-    "countries": [
+    "Countries": [
         {
             "Korea": {
                 "Capital": "Seoul",
@@ -20,47 +20,46 @@
         },
         {
             "China": {
-                "continent": "Asia",
-                "capital": "Beijing",
-                "GDP": 18.9758,
-                "population": "1.386 billion",
-                "language": [
+                "Capital": "Beijing",
+                "Language": [
                     "Standard Chinese"
                 ],
-                "currency": "CNY",
+                "GDP": 18.9758,
+                "Population": "1.386 billion",
+                "Currency": "CNY",
                 "Legislature": [
                     "Republican system",
                     "One-party socialism"
-                ]
+                ],
+                "Continent": "Asia"
             }
         },
         {
             "Brazil": {
-                "continent": "South America",
-                "capital": "Brasilia",
-                "GDP": 2.3668,
-                "population": "205 million",
-                "language": [
+                "Capital": "Brasilia",
+                "Language": [
                     "Portuguese"
                 ],
-                "currency": "BRL",
+                "GDP": 2.3668,
+                "Population": "205 million",
+                "Currency": "BRL",
                 "Legislature": [
                     "Republic system",
                     "Federal system",
                     "The presidential system"
-                ]
+                ],
+                "Continent": "South America"
             }
         },
         {
             "Canada": {
-                "continent": "North America",
-                "capital": "Ottawa",
-                "GDP": 1.518,
-                "population": "35.85 million",
-                "language": [
+                "Capital": "Ottawa",
+                "Language": [
                     "English, Franch"
                 ],
-                "currency": "CAD",
+                "GDP": 1.518,
+                "Population": "35.85 million",
+                "Currency": "CAD",
                 "Legislature": [
                     "Monarchy (United Kingdom)",
                     "Democratic system",
@@ -68,26 +67,27 @@
                     "Federal system",
                     "House of Commons",
                     "Parliamentary system"
-                ]
+                ],
+                "Continent": "North America"
             }
         },
         {
             "United States of America": {
-                "continent": "North America",
-                "capital": "Washington, D.C",
-                "GDP": 18.1247,
-                "population": "322.66 million",
-                "language": [
+                "Capital": "Washington, D.C",
+                "Language": [
                     "English"
                 ],
-                "currency": "CAD",
+                "GDP": 18.1247,
+                "Population": "322.66 million",
+                "Currency": "CAD",
                 "Legislature": [
                     "Republican system",
                     "Democratic system",
                     "Constitutional law",
                     "Federal system",
                     "The presidential system"
-                ]
+                ],
+                "Continent": "North America"
             }
         },
         {
@@ -128,7 +128,9 @@
         {
             "Indonesia": {
                 "Capital": "Jakarta",
-                "Language": "Indonesian",
+                "Language": [
+                    "Indonesian"
+                ],
                 "GDP": "$3.740 trillion",
                 "Population": "23 million",
                 "Currency": "IDR",
@@ -212,12 +214,17 @@
         {
             "Mexico": {
                 "Capital": "Mexico Ciity",
-                "Language": "Spanish",
+                "Language": [
+                    "Spanish"
+                ],
                 "GDP": 2.575,
                 "Population": "132.32 million",
                 "Currency": "MXN",
                 "Legislature": [
-                    "Federal presidential constitutional republic"
+                    "Federal",
+                    "Presidential",
+                    "Constitutional",
+                    "Republic"
                 ],
                 "Continent": "North America"
             }
@@ -225,7 +232,9 @@
         {
             "Germany": {
                 "Capital": "Berlin",
-                "Language": "German",
+                "Language": [
+                    "German"
+                ],
                 "GDP": 4.555,
                 "Population": "83 million",
                 "Currency": "EUR",
@@ -240,7 +249,9 @@
         {
             "Greece": {
                 "Capital": "Athens",
-                "Language": "Greek",
+                "Language": [
+                    "Greek"
+                ],
                 "GDP": 0.3267,
                 "Population": "10.76 million",
                 "Currency": "EUR",
@@ -350,7 +361,9 @@
         {
             "Portugal": {
                 "Capital": "Lisbon",
-                "Language": "Portuguese",
+                "Language": [
+                    "Portuguese"
+                ],
                 "GDP": 0.340715,
                 "Population": "10 million",
                 "Currency": "EUR",
