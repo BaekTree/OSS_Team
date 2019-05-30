@@ -1,11 +1,11 @@
-country_t country[25];
 
-void Quiz(){
+
+void Quiz(country_t *country){
     
     char answer[50];
 
     int number_of_quiz_question = 10;
-    int number_of_countries = 25;
+    int number_of_countries = 18;
     int score = 0;
 
     srand(time(NULL));
@@ -35,7 +35,7 @@ void Quiz(){
 
         if(q==1){
             printf("Which country has the capital %s?\n", country[n].capital_name);
-            scanf("%s", &answer);
+            scanf("%s", answer);
 
             if(strcmp(answer, country[n].country_name)!=0){
                 printf("Correct Answer!!\n");
@@ -51,7 +51,7 @@ void Quiz(){
         }
         if(q==2){
             printf("What is the capital of %s?\n", country[n].country_name);
-            scanf("%s", &answer);
+            scanf("%s", answer);
 
             if(strcmp(answer, country[n].capital_name)!=0){
                 printf("Correct Answer!!\n");
