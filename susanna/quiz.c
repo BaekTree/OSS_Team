@@ -5,7 +5,7 @@ void Quiz(country_t *country){
     char answer[50];
 
     int number_of_quiz_question = 10;
-    int number_of_countries = 25;
+    int number_of_countries = 18;
     int score = 0;
 
     srand(time(NULL));
