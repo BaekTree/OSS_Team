@@ -15,18 +15,18 @@ void Options(){
 	printf("\n");
     
     while(1){
-	    scanf(" %c", &option);
+	    scanf("%d", &option);
 
         switch(option){
             case 1: 
                 printf("Enter the name of the continent you would like to see\n");
-                scanf("%s", &Input);
+                scanf("%s", Input);
                 //CountryNamesList(Input);
                 break;
 
             case 2:
                  printf("Enter the country name you would like to see\n");
-                scanf("%s", &Input);
+                scanf("%s", Input);
                 //CountryInformation(Input);
                  break;
 
