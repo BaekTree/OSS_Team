@@ -65,7 +65,6 @@ void Quiz(){
         }
 
     }
-
     printf("\n\nYour score is %d", score);
     
 }
