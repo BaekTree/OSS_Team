@@ -17,8 +17,8 @@ typedef struct
 #define NUM_CTR 10
 void rank(country_t* ctr, int n);
 void printRank(country_t *rk, int n);
-void insertionSort(country_t *ctr, int n);
 void sortABC(country_t *ctr, int n);
+void sortGDP(country_t *ctr, int n);
 
 
 
@@ -50,9 +50,9 @@ void ABCD(country_t* ctr, int n){
     sortABC(rk, n);
 
     //print
-    printf("Country\n");
+    printf("     Country     \n");
     for(int i = 0 ; i < n ; i ++){
-        printf("%10s\n",rk[i].country_name);
+        printf("     %s\n",rk[i].country_name);
     }
     free(rk);
 }
@@ -71,7 +71,7 @@ void rank(country_t* ctr, int n){
     }
     
     //sort
-    insertionSort(rk,n);
+    sortGDP(rk,n);
     
     //print
     printRank(rk,n);
@@ -85,9 +85,9 @@ void rank(country_t* ctr, int n){
  * **/
 void printRank(country_t *rk, int n){
 
-    printf("Rank,          Country,          GDP\n");
+        printf("    Rank : Country : GDP\n");
     for(int i = 0 ; i <n; i ++){
-        printf("%5d : %10s : %10d", i + 1, rk[i].country_name, rk[i].gdp);
+        printf("    %2d  : %8s : %10d", i + 1, rk[i].country_name, rk[i].gdp);
     }
 }
 
