@@ -18,6 +18,36 @@ typedef struct {
     int size; // Number of child (nested) tokens
 } tok_t;
 
+typedef struct {
+    char* country_name;
+    char* capital_name;
+    char language[4][30];
+    double gdp;
+    char* population;
+    char* currency;
+    char legislature[6][30];
+    char* continent;
+} country_t;
+
+
+
+void print_array(int num_of_t, tok_t *t_arr, char *data) {
+    // print out
+    for (int i = 0; i < num_of_t; i++) {
+        printf("[%3d] ", i );
+        for (int j = t_arr[i].start; j < t_arr[i].end; j++ ) {
+            printf("%c", data[j]);
+        }
+        char * type;
+        if (t_arr[i].type == 0) type = "UNDEFINED";
+        else if (t_arr[i].type == 1) type = "OBJECT";
+        else if (t_arr[i].type == 2) type = "ARRAY";
+        else if (t_arr[i].type == 3) type = "STRING";
+        else type = "PRIMITIVE";
+        printf (" (size=%d, %d~%d, JSMN_%s)\n",t_arr[i].size, t_arr[i].start, t_arr[i].end, type);
+    }
+}
+
 int main(int argc, char *argv[]) {
     FILE *fp;
     const int maxLen = 256;
@@ -68,6 +98,9 @@ int main(int argc, char *argv[]) {
     //dynamic structure array
     tok_t *token_arr;
     token_arr = (tok_t *)malloc(sizeof(tok_t) * token_array_size);
+    for (int i = 0; i < token_array_size; i++) {
+        token_arr[i].type = UNDEFINED;
+    }
 
     int start_cursor = 0;       // start index of the token
     int end_cursor;             // end index of the token
@@ -78,6 +111,7 @@ int main(int argc, char *argv[]) {
     int sbracket_counter = 0;   // [ ] counter
 
     for (int i = 0; i < length; i++) {
+        //if number of tokens exceed the max size -> increase the size of the token array
         if (num_of_token == token_array_size - 1) {
             token_array_size = token_array_size * 2;
             token_arr = (tok_t *)realloc(token_arr, token_array_size);
@@ -233,25 +267,12 @@ int main(int argc, char *argv[]) {
             }
         }
     }
-    // print out
-    for (int i = 0; i < num_of_token; i++) {
-        printf("[%3d] ", i );
-        for (int j = token_arr[i].start; j < token_arr[i].end; j++ ) {
-            printf("%c", data[j]);
-        }
-        char * type;
-        if (token_arr[i].type == 0) type = "UNDEFINED";
-        else if (token_arr[i].type == 1) type = "OBJECT";
-        else if (token_arr[i].type == 2) type = "ARRAY";
-        else if (token_arr[i].type == 3) type = "STRING";
-        else type = "PRIMITIVE";
-        printf (" (size=%d, %d~%d, JSMN_%s)\n",token_arr[i].size, token_arr[i].start, token_arr[i].end, type);
-    }
+    print_array(num_of_token, token_arr, data);
+
     // memory free
     free(data);
     free(token_arr);
 
+    //return should be tok_t array for the application program
     return 0;
 }
-
-
