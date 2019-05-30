@@ -1,6 +1,6 @@
-country_t country[25];
 
-void Quiz(){
+
+void Quiz(country_t *country){
     
     char answer[50];
 

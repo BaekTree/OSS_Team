@@ -19,22 +19,21 @@ typedef struct {
 } tok_t;
 
 typedef struct {
-    char* country_name;
-    char* capital_name;
-    char language[4][30];
+    char country_name[128];
+    char capital_name[128];
+    char language[8][64];
     double gdp;
-    char* population;
-    char* currency;
-    char legislature[6][30];
-    char* continent;
+    char population[32];
+    char currency[4];
+    char legislature[8][64];
+    char continent[32];
 } country_t;
-
 
 
 void print_array(int num_of_t, tok_t *t_arr, char *data) {
     // print out
     for (int i = 0; i < num_of_t; i++) {
-        printf("[%3d] ", i );
+        printf("[%3d] ", i+1 );
         for (int j = t_arr[i].start; j < t_arr[i].end; j++ ) {
             printf("%c", data[j]);
         }
@@ -48,6 +47,32 @@ void print_array(int num_of_t, tok_t *t_arr, char *data) {
     }
 }
 
+void country_maker(int num_of_tok, tok_t *t_arr, char *data, country_t *c_arr){
+    int length;
+
+    for (int i = 4, j = 0; i < num_of_tok; i++, j++) {
+        length = t_arr[i].end - t_arr[i].start;
+
+        // country name
+        strncpy(c_arr[j].country_name, data + t_arr[i].start, length);
+        i += 2;
+
+        // capital name
+        strncpy(c_arr[j].capital_name, data + t_arr[i].start, length);
+        i += 3;
+
+        // languages
+        for(int k; data[t_arr[i].start] != 'G' && data[t_arr[i].start] != 'D' && data[t_arr[i].start] != 'P'; k++, i++) {
+            strncpy(c_arr[j].language[k], data + t_arr[i].start, length);
+
+        }
+
+
+
+        
+    }
+}
+
 int main(int argc, char *argv[]) {
     FILE *fp;
     const int maxLen = 256;
@@ -57,7 +82,7 @@ int main(int argc, char *argv[]) {
 
     //file open
     if (argc == 1) {        // if there is no argument
-        fp = fopen("countries.json", "r");
+        fp = fopen("countries1.json", "r");
     }
     else {                  // get the file name from input
         fp = fopen(argv[1], "r");
@@ -267,12 +292,76 @@ int main(int argc, char *argv[]) {
             }
         }
     }
-    print_array(num_of_token, token_arr, data);
+
+    // print_array(num_of_token, token_arr, data);
+
+
+    country_t *country_arr;
+    country_arr = (country_t *)malloc(sizeof(country_t) * 100);
+
+    country_maker(num_of_token, token_arr, data, country_arr);
+
+    // country_t *test;
+    // test = (country_t *)malloc(sizeof(country_t) * 30);
+    // char str[20];
+
+    // for (int i = 0; i < 30; i++){
+    //     sprintf(str, "%d", i);
+
+    //     strcpy(test[i].country_name, "country_name ");
+    //     strcat(test[i].country_name, str);
+
+    //     strcpy(test[i].capital_name, "capital_name ");
+    //     strcat(test[i].capital_name, str);
+
+    //     strcpy(test[i].continent, "continent ");
+    //     strcat(test[i].continent, str);
+
+    //     strcpy(test[i].currency, "CUR");
+
+    //     strcpy(test[i].population, "population ");
+    //     strcat(test[i].population, str);
+
+    //     test[i].gdp = i + 10000.123;
+    //     memset(str, 0, sizeof str);
+    // }
+
+    // // printf("%s\n", test[0].country_name);
+
+    // for (int i = 0; i < 30; i++) {
+    //     printf("%s\n", test[i].country_name);
+    //     printf("%s\n", test[i].capital_name);
+    //     printf("%s\n", test[i].continent);
+    //     printf("%s\n", test[i].currency);
+    //     printf("%s\n", test[i].population);
+    //     printf("%f\n", test[i].gdp);
+    // }
+
 
     // memory free
     free(data);
     free(token_arr);
+    free(country_arr);
 
     //return should be tok_t array for the application program
     return 0;
 }
+
+
+        // strcpy(test[i].country_name, "country_name ");
+        // strcat(test[i].country_name, str);
+
+        // strcpy(test[i].capital_name, "capital_name ");
+        // strcat(test[i].capital_name, str);
+
+        // strcpy(test[i].continent, "continent ");
+        // strcat(test[i].continent, str);
+
+        // strcpy(test[i].currency, "currency ");
+        // strcat(test[i].currency, str);
+
+        // strcpy(test[i].population, "population ");
+        // strcat(test[i].population, str);
+
+        // test[i].gdp = i + 10000.1;
+        // memset(str, 0, sizeof str);
