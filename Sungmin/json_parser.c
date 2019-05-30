@@ -23,10 +23,11 @@ int main(int argc, char *argv[]) {
     const int maxLen = 256;
     char buffer[maxLen];
     char *data = (char *)malloc(maxLen * sizeof(char));
+    int token_array_size = 1024;
 
     //file open
     if (argc == 1) {        // if there is no argument
-        fp = fopen("test1.json", "r");
+        fp = fopen("countries.json", "r");
     }
     else {                  // get the file name from input
         fp = fopen(argv[1], "r");
@@ -42,7 +43,7 @@ int main(int argc, char *argv[]) {
     for (int i = 0, j = 0; (ch = fgetc(fp)) != EOF; i++, j++){
         buffer[j] = ch;
         length++;
-        if (ch == '\n'){
+        if (ch == '\n' ){
             // printf("%s\n", buffer);
             data = (char *) realloc(data, strlen(data) + strlen(buffer));
             strcat(data, buffer);
@@ -50,21 +51,24 @@ int main(int argc, char *argv[]) {
             j = -1;
         }
     }
-    buffer[length] = '\0';
-    length++;
+    if (buffer[0] != '\0') {
+        length++;
+        data = (char *) realloc(data, strlen(data) + strlen(buffer));
+        strcat(data, buffer);
+        memset(buffer, 0, sizeof buffer);
+        data[++length] = '\0';
+    }
+    
     fclose(fp);
 
-    //dynamic structure array
-    // struct tok_t *token_arr;
-    // token_arr = (tok_t*)malloc(50 * sizeof(token_arr));
 
-    //not dynamic
-    tok_t * token_arr[1024];
-    // 구조체 포인터 배열 전체 크기에서 요소(구조체 포인터)의 크기로 나눠서 요소 개수를 구함
-    for (int i = 0; i < sizeof(token_arr) / sizeof(tok_t *); i++)    // 요소 개수만큼 반복
-    {
-        token_arr[i] = malloc(sizeof(tok_t));    // 각 요소에 구조체 크기만큼 메모리 할당
-    }
+    // printf("The string is : \n%s\n", data);
+
+
+    //dynamic structure array
+    tok_t *token_arr;
+    token_arr = (tok_t *)malloc(sizeof(tok_t) * token_array_size);
+
     int start_cursor = 0;       // start index of the token
     int end_cursor;             // end index of the token
     int token_size = 0;         // size of token ( :pairs )
@@ -74,6 +78,10 @@ int main(int argc, char *argv[]) {
     int sbracket_counter = 0;   // [ ] counter
 
     for (int i = 0; i < length; i++) {
+        if (num_of_token == token_array_size - 1) {
+            token_array_size = token_array_size * 2;
+            token_arr = (tok_t *)realloc(token_arr, token_array_size);
+        }
         // start index marked when data[i] != '\n' and ' ' and '\t'
         if(data[i] != ' ' && data[i] != '\n' && data[i] != '\t') {
             start_cursor = i;
@@ -93,10 +101,10 @@ int main(int argc, char *argv[]) {
                     if (data[i+1] == ':'){
                         if (cbracket_counter == 0 && sbracket_counter == 0) {
                             token_size = 1;
-                            token_arr[num_of_token]->start = start_cursor;
-                            token_arr[num_of_token]->end = end_cursor;
-                            token_arr[num_of_token]->size = token_size;
-                            token_arr[num_of_token]->type = STRING;         //is STRING
+                            token_arr[num_of_token].start = start_cursor;
+                            token_arr[num_of_token].end = end_cursor;
+                            token_arr[num_of_token].size = token_size;
+                            token_arr[num_of_token].type = STRING;         //is STRING
                             token_size = 0;
                             num_of_token++;
                             i++;
@@ -111,10 +119,10 @@ int main(int argc, char *argv[]) {
                     else {
                         if (cbracket_counter == 0 && sbracket_counter == 0) {
                             // token_size = 0;
-                            token_arr[num_of_token]->start = start_cursor;
-                            token_arr[num_of_token]->end = end_cursor;
-                            token_arr[num_of_token]->size = token_size;
-                            token_arr[num_of_token]->type = STRING;         //is STRING
+                            token_arr[num_of_token].start = start_cursor;
+                            token_arr[num_of_token].end = end_cursor;
+                            token_arr[num_of_token].size = token_size;
+                            token_arr[num_of_token].type = STRING;         //is STRING
                             token_size = 0;
                             num_of_token++;
                         } 
@@ -134,7 +142,7 @@ int main(int argc, char *argv[]) {
             else if (data[i] == '{' && sbracket_counter == 0){
                 cbracket_counter++;
                 if (cbracket_counter == 1) {
-                    token_arr[num_of_token]->start = start_cursor;
+                    token_arr[num_of_token].start = start_cursor;
                 } // else nothing when counter > 1
             }
             else if (data[i] == '{' && cbracket_counter == 0 && sbracket_counter == 1){ 
@@ -143,10 +151,10 @@ int main(int argc, char *argv[]) {
             else if (data[i] == '}' && sbracket_counter == 0  && cbracket_counter > 0) {
                 cbracket_counter--;
                 if (cbracket_counter == 0) {
-                    token_arr[num_of_token]->size = token_size; // size of the token
-                    token_arr[num_of_token]->end = i+1;         // +1 to print out the value
-                    token_arr[num_of_token]->type = OBJECT;     // is OBJECT
-                    i = token_arr[num_of_token]->start + 1;
+                    token_arr[num_of_token].size = token_size; // size of the token
+                    token_arr[num_of_token].end = i+1;         // +1 to print out the value
+                    token_arr[num_of_token].type = OBJECT;     // is OBJECT
+                    i = token_arr[num_of_token].start + 1;
                     num_of_token++;
                     token_size = 0;
                 } //else nothing
@@ -161,15 +169,15 @@ int main(int argc, char *argv[]) {
             else if (data[i] == '[' && cbracket_counter == 0) {
                 sbracket_counter++;
                 if (sbracket_counter == 1) {
-                    token_arr[num_of_token]->start = start_cursor;
+                    token_arr[num_of_token].start = start_cursor;
                 } // else nothing is counter > 1
             }
             else if (data[i] == ']' && cbracket_counter == 0 && sbracket_counter > 0) {
                 sbracket_counter--;
                 if (sbracket_counter == 0) {
-                    token_arr[num_of_token]->size = token_size; //
-                    token_arr[num_of_token]->end = i+1;
-                    i = token_arr[num_of_token]->start + 1;
+                    token_arr[num_of_token].size = token_size; //
+                    token_arr[num_of_token].end = i+1;
+                    i = token_arr[num_of_token].start + 1;
                     num_of_token++;
                     token_size = 0;
                 } //else nothing
@@ -207,10 +215,10 @@ int main(int argc, char *argv[]) {
                 if (is_primitive == 1) {
                     //just value
                     if (cbracket_counter == 0 && sbracket_counter == 0) {
-                        token_arr[num_of_token]->start = start_cursor;
-                        token_arr[num_of_token]->end = end_cursor;
-                        token_arr[num_of_token]->size = 0;
-                        token_arr[num_of_token]->type = PRIMITIVE;         //is PRIMITIVE
+                        token_arr[num_of_token].start = start_cursor;
+                        token_arr[num_of_token].end = end_cursor;
+                        token_arr[num_of_token].size = 0;
+                        token_arr[num_of_token].type = PRIMITIVE;         //is PRIMITIVE
                         num_of_token++;
                         i = end_cursor;
                     }
@@ -228,23 +236,21 @@ int main(int argc, char *argv[]) {
     // print out
     for (int i = 0; i < num_of_token; i++) {
         printf("[%3d] ", i );
-        for (int j = token_arr[i]->start; j < token_arr[i]->end; j++ ) {
+        for (int j = token_arr[i].start; j < token_arr[i].end; j++ ) {
             printf("%c", data[j]);
         }
         char * type;
-        if (token_arr[i]->type == 0) type = "UNDEFINED";
-        else if (token_arr[i]->type == 1) type = "OBJECT";
-        else if (token_arr[i]->type == 2) type = "ARRAY";
-        else if (token_arr[i]->type == 3) type = "STRING";
+        if (token_arr[i].type == 0) type = "UNDEFINED";
+        else if (token_arr[i].type == 1) type = "OBJECT";
+        else if (token_arr[i].type == 2) type = "ARRAY";
+        else if (token_arr[i].type == 3) type = "STRING";
         else type = "PRIMITIVE";
-        printf (" (size=%d, %d~%d, JSMN_%s)\n",token_arr[i]->size, token_arr[i]->start, token_arr[i]->end, type);
+        printf (" (size=%d, %d~%d, JSMN_%s)\n",token_arr[i].size, token_arr[i].start, token_arr[i].end, type);
     }
     // memory free
     free(data);
-    for (int i = 0; i < sizeof(token_arr) / sizeof(struct tok_t *); i++)
-    {
-        free(token_arr[i]);
-    }
+    free(token_arr);
+
     return 0;
 }
 

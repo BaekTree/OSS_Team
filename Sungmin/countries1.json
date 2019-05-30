@@ -1,0 +1,38 @@
+{
+    "countries": [
+        {
+            "Korea": {
+                "Capital": "Seoul",
+                "Language": [
+                    "Korean"
+                ],
+                "GDP": 1.934,
+                "Population": "51.47 million",
+                "Currency": "KRW",
+                "Legislature": [
+                    "Republican system",
+                    "Liberal democracy",
+                    "A single state",
+                    "The presidential system"
+                ],
+                "Continent": "Asia"
+            }
+        },
+        {
+            "China": {
+                "continent": "Asia",
+                "capital": "Beijing",
+                "GDP": 18.9758,
+                "population": "1.386 billion",
+                "language": [
+                    "Standard Chinese"
+                ],
+                "currency": "CNY",
+                "Legislature": [
+                    "Republican system",
+                    "One-party socialism"
+                ]
+            }
+        }
+    ]
+}
