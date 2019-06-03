@@ -26,6 +26,7 @@ void Quiz(country_t *country);
 void Search_Continent(country_t *cty, char *search);
 void Search_Country(country_t *cty, char *search);
 
+#if 0
 int main(){
 
     //***********************************Test Dummies********************************//
@@ -121,6 +122,7 @@ int main(){
 
     return 1;
 }
+#endif
 void Options(){
 	
     int option;
