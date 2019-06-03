@@ -104,7 +104,14 @@ void ABCD(country_t *ctr, int n)
  * **/
 void rank(country_t *ctr, int n)
 {
+    //copy the array not to influence the original array
     country_t *rk = (country_t *)malloc(sizeof(country_t) * n);
+    for (int i = 0; i < n; i++)
+    {
+        rk[i] = ctr[i];
+    }
+    // printRank(rk, n);
+    //sort
     sortGDP(rk, n);
 
     //print
@@ -141,7 +148,6 @@ void sortGDP(country_t *ctr, int n)
           of their current position */
         while (j >= 0 && ctr[j].gdp < key.gdp)
         {
-            printf("inside function?\n");
 
             ctr[j + 1] = ctr[j];
             j = j - 1;
