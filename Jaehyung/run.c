@@ -481,12 +481,13 @@ void sortGDP(country_t *ctr, int n)
     {
         key = ctr[i];
         j = i - 1;
-        printf("inside function?\n");
         /* Move elements of arr[0..i-1], that are 
           greater than key, to one position ahead 
           of their current position */
         while (j >= 0 && ctr[i].gdp > key.gdp)
         {
+            printf("inside function?\n");
+
             ctr[j + 1] = ctr[j];
             j = j - 1;
         }
