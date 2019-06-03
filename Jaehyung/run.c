@@ -430,7 +430,7 @@ void rank(country_t* ctr, int n){
     country_t* rk = (country_t *)malloc(sizeof(country_t)*n);
     for(int i = 0 ; i < n ; i ++){
         rk[i]=ctr[i];
-        printf("    %2d  : %8s : %10lf\n", i + 1, rk[i].country_name, rk[i].gdp);
+        printf("    %2d  : %8s : %10lf\n", i + 1,ctr[i].country_name, ctr[i].gdp);
     }
     // printRank(rk, n);
     //sort
