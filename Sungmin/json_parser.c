@@ -512,26 +512,44 @@ void Search_Country(int num_of_c, country_t *c_arr){
 }
 
 void Print_Country(int num_of_c, country_t *c_arr, char *search) {
-    for (int i = 0, j = 0; i <= num_of_c ; i++)
-    {
-        if (!strcmp(c_arr[i].country_name,search)){
-            printf("Country You Selected: %s \nCapital: %s \nLanguage:", c_arr[i].country_name, c_arr[i].capital_name);
-        while (c_arr[i].language[j + 1] != '\0')
-        {
-            printf(" %s /", c_arr[i].language[j]);
-            j++;
-        }
-        j = 0;
-        printf("\ngdp: %e /nPopulation: %s \nCurrency: %s \nLegislature:", c_arr[i].gdp, c_arr[i].population, c_arr[i].currency);
-        while (c_arr[i].legislature[j + 1] != '\0')
-        {
-            printf(" %s /", c_arr[i].legislature[j]);
-            j++;
-        }
-        printf("\nContinent: %s", c_arr[i].continent);
-        break;
-        }
+    int country_no = 0;
+
+    //find country;
+    for (int i = 0; i <= num_of_c ; i++) if (!strcmp(c_arr[i].country_name,search)) country_no = i;
+
+    //print out the country
+    printf("%s\n", c_arr[country_no].country_name);
+    printf("%s\n", c_arr[country_no].capital_name);
+    for (int j = 0; c_arr[country_no].language[j][0] != '\0'; j++){
+        printf("%s\n", c_arr[country_no].language[j]);
     }
+    printf("%f\n", c_arr[country_no].gdp);
+    printf("%s\n", c_arr[country_no].population);
+    printf("%s\n", c_arr[country_no].currency);
+    printf("%s\n", c_arr[country_no].continent);
+    for (int j = 0; c_arr[country_no].legislature[j][0] != '\0'; j++){
+        printf("%s\n", c_arr[country_no].legislature[j]);
+    }
+
+    // for (int i = 0, j = 0; i <= num_of_c ; i++)
+    // {
+    //     if (!strcmp(c_arr[i].country_name,search)){
+    //         printf("Country You Selected: %s \nCapital: %s \nLanguage:", c_arr[i].country_name, c_arr[i].capital_name);
+    //         while (c_arr[i].language[j + 1] != '\0') {
+    //             printf(" %s /", c_arr[i].language[j]);
+    //             j++;
+    //         }
+    //         j = 0;
+    //         printf("\ngdp: %e /nPopulation: %s \nCurrency: %s \nLegislature:", c_arr[i].gdp, c_arr[i].population, c_arr[i].currency);
+    //         while (c_arr[i].legislature[j + 1] != '\0') {
+    //             printf(" %s /", c_arr[i].legislature[j]);
+    //             j++;
+    //         }
+    //         printf("\nContinent: %s", c_arr[i].continent);
+    //         break;
+    //     }
+    // }
+    
 }
 
 //Search Country by Continent
