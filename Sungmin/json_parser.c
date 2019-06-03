@@ -42,10 +42,10 @@ void sortGDP(country_t *ctr, int n);
 void printRank(country_t *rk, int n);
 
 //sort countries in GDP ranking
-//void rank(country_t *ctr, int n);
+void rank(country_t *ctr, int n);
 
 //sot countries in alphabetical order
-//void ABCD(country_t *ctr, int n);
+void ABCD(country_t *ctr, int n);
 
 // c_arr quiz asking capital and name
 void Quiz(int num_of_c, country_t* c_arr);
@@ -382,16 +382,16 @@ int json_parser(int length, int token_array_size, tok_t* token_arr, char* data) 
 }
 
 void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr) {
-    // ABCD(c_arr, num_of_c);
+    ABCD(c_arr, num_of_c);
 
     int option;
     
 	while(1){
         printf("\n\nChoose the information you would like to see");
         printf("\n\t 1 : Display the parsed tokens");
-        printf("\n\t 2 : Search information about countries");
-        printf("\n\t 3 : List the c_arr names according to the continent");
-        printf("\n\t 4 : List c_arr names according to GDP ranking");
+        printf("\n\t 2 : List names of all the countries");
+        printf("\n\t 3 : List the country names according to the continent");
+        printf("\n\t 4 : List country names according to GDP ranking");
         printf("\n\t 5 : Test your Knowledge (Quiz)");
         printf("\n\t 0: Quit the application");
         printf("\n");
@@ -413,7 +413,7 @@ void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr
                 break;            
             
             case 4: // GDP Rank
-                // rank(c_arr, num_of_c);
+                rank(c_arr, num_of_c);
                 break;
             case 5: // Quiz
                 Quiz(num_of_c, c_arr);
@@ -598,11 +598,11 @@ void Quiz(int num_of_c, country_t *c_arr) {
         int n = num_check_array[i];
         int q = rand()%2+1;
 
-        printf("%d. ", i+1);
+        printf("\n%d. ", i+1);
 
         if(q==1){
             printf("Which country has the capital %s?\n", c_arr[n].capital_name);
-            scanf("%s", answer);
+            gets(answer);
 
             if(strcmp(answer, c_arr[n].country_name)==0){
                 printf("Correct Answer!!\n");
@@ -616,7 +616,7 @@ void Quiz(int num_of_c, country_t *c_arr) {
         }
         if(q==2){
             printf("What is the capital of %s?\n", c_arr[n].country_name);
-            scanf("%s", answer);
+            gets(answer);
 
             if(strcmp(answer, c_arr[n].capital_name)==0){
                 printf("Correct Answer!!\n");
