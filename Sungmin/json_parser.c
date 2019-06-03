@@ -455,7 +455,7 @@ void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr
     while (1)
     {
         //system("clear");
-        printf("\n--------------------Menu------------------------");
+        printf("\n----------------------Menu--------------------------");
         printf("\n\nChoose the information you would like to see");
         printf("\n\t 1 : Display the parsed tokens");
         printf("\n\t 2 : Search country information by country names");
@@ -781,11 +781,6 @@ void rank(country_t *ctr, int n)
     //print
     printRank(rk, n);
 
-    
-
-
-
-
     free(rk);
 }
 
@@ -795,15 +790,12 @@ void rank(country_t *ctr, int n)
  * **/
 void printRank(country_t *rk, int n)
 {
-    
-   
     printf("     ----------Country Rank----------    \n");
     printf("    Rank : Country : GDP\n");
     for (int i = 0; i < n; i++)
     {
         printf("    %2d  : %8s : %10lf\n", i + 1, rk[i].country_name, rk[i].gdp);
     }
-
 }
 
 //insertionsort by GDP
