@@ -1,34 +1,33 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-#include <time.h>
+#include <stdlib.h>
 
-typedef struct {
+typedef struct
+{
     char country_name[30];
     char capital_name[30];
-    char language[10][30];
-    double gdp;
+    char language[10][30]; 
+    double gdp;            
     char population[30];
-    char currency[4];
-    char legislature[10][30];
+    char currency[5];
+    char legislature[10][30]; 
     char continent[30];
 } country_t;
-
 #define NUM_CTR 30
-void rank(country_t* ctr, int n);
-void printRank(country_t *rk, int n);
+
+void Options();
 void sortABC(country_t *ctr, int n);
 void sortGDP(country_t *ctr, int n);
+void printRank(country_t *rk, int n);
+void rank(country_t* ctr, int n);
 void ABCD(country_t* ctr, int n);
 void Quiz(country_t *country);
-void Options();
-
-
 
 
 int main(){
 
-country_t *test;
+    //***********************************Test Dummies********************************//
+    country_t *test;
     test = (country_t *)malloc(sizeof(country_t) * 30);
     char str[20];
 
@@ -63,9 +62,15 @@ country_t *test;
         printf("%s\n", test[i].population);
         printf("%f\n", test[i].gdp);
     }
+    //***********************************Test Dummies set done********************************//
 
+    Options();
 
-  int option;
+    return 1;
+}
+void Options(){
+	
+    int option;
     char Input[100];
 
     
@@ -80,18 +85,18 @@ country_t *test;
 	printf("\n");
     
     while(1){
-	    scanf(" %c", &option);
+	    scanf("%d", &option);
 
         switch(option){
             case 1: 
                 printf("Enter the name of the continent you would like to see\n");
-                scanf("%s", &Input);
+                scanf("%s", Input);
                 //CountryNamesList(Input);
                 break;
 
             case 2:
                  printf("Enter the country name you would like to see\n");
-                scanf("%s", &Input);
+                scanf("%s", Input);
                 //CountryInformation(Input);
                  break;
 
@@ -100,7 +105,7 @@ country_t *test;
                 break;
 
             case 4: 
-                Quiz(test);
+                // Quiz();
                 break;
 
             case 0:
@@ -113,29 +118,228 @@ country_t *test;
 
         }
     }
-
-    // ctr[0].country_name="korea";
-    // ctr[0].gdp=10;
-
-    // ctr[1].country_name="japan";
-    // ctr[1].gdp = -10;
-
-    ABCD(test,NUM_CTR);
-    rank(test,NUM_CTR);
-    //GDP rank
-    /**
-     * 국가를 정렬. 
-     *  
-     * countreis array: country_t
-     * number of countreis: NUM_CTR.
-     * 
-     * 
-     * sorting 할 기준:
-     *  ctr[i].gdp
-     * 
-     * **/
-
 }
+
+
+
+void Search_Continent(country_t *cty, char *search)
+{
+
+    for (int i = 0; i < 24; i++)
+    {
+        if (!strcmp(cty[i].continent,search))
+            printf("%s\n", cty[i].country_name);
+    }
+}
+void Search_Country(country_t *cty, char *search)
+{
+    for (int i = 0, j = 0; i < 24; i++)
+    {
+        if (!strcmp(cty[i].country_name,search)){
+            printf("Country You Selected: %s \nCapital: %s \nLanguage:", cty[i].country_name, cty[i].capital_name);
+        while (cty[i].language[j + 1] != "\n")
+        {
+            printf(" %s /", cty[i].language[j]);
+            j++;
+        }
+        j = 0;
+        printf("\ngdp: %e /nPopulation: %s \nCurrency: %s \nLegislature:", cty[i].gdp, cty[i].population, cty[i].currency);
+        while (cty[i].legislature[j + 1] != "\n")
+        {
+            printf(" %s /", cty[i].legislature[j]);
+            j++;
+        }
+        printf("\nContinent: %s", cty[i].continent);
+        break;
+        }
+    }
+}
+
+#if 0
+int main()
+{
+    country_t *cty;
+    int a = 0, b = 0;
+    //0. save tokens into "country" structure.
+
+    
+    //1. Search Country by Continent
+    printf("\nSelect Continent Number \n[ 1.Asia 2.Europe 3.Austrailia 4.Africa 5.N/America 6.S/America ] : ");
+    scanf("%d", &a);
+
+    if (a == 1)
+        Search_Continent(cty, "Asia");
+
+    else if (a == 2)
+        Search_Continent(cty, "Europe");
+
+    else if (a == 3)
+        Search_Continent(cty, "Australia");
+
+    else if (a == 4)
+        Search_Continent(cty, "Africa");
+
+    else if (a == 5)
+        Search_Continent(cty, "North America");
+
+    else if (a == 6)
+        Search_Continent(cty, "South America");
+
+    else
+        printf("Inappropriate Input.\n");
+
+    //2. Search Informations by Country
+    printf("\n\nSelect Country Number \n [ 1.Argentina 2.Australia 3.Brazil 4.Canada 5.China 6.Cambodia 7.Egypt 8.Germany 9.Greece \n10.India 11.Indonesia 12.Japan 13.Korea 14.Mexico 15.New Zealand 16.Morocco 17.Portugal \n18.Peru 19.Republic of Turkey 20.Republic of Kazakhstan 21.South Africa 22.United Kingdom \n23.United States of America] \n: ");
+    scanf("%d", &b);
+
+    if (b == 1)
+        Search_Country(cty, "Argentina");
+
+    else if (b == 2)
+        Search_Country(cty, "Australia");
+
+    else if (b == 3)
+        Search_Country(cty, "Brazil");
+
+    else if (b == 4)
+        Search_Country(cty, "Canada");
+
+    else if (b == 5)
+        Search_Country(cty, "China");
+
+    else if (b == 6)
+        Search_Country(cty, "Cambodia");
+
+    else if (b == 7)
+        Search_Country(cty, "Egypt");
+
+    else if (b == 8)
+        Search_Country(cty, "Germany");
+
+    else if (b == 9)
+        Search_Country(cty, "Greece");
+
+    else if (b == 10)
+        Search_Country(cty, "India");
+
+    else if (b == 11)
+        Search_Country(cty, "Indonesia");
+
+    else if (b == 12)
+        Search_Country(cty, "Japan");
+
+    else if (b == 13)
+        Search_Country(cty, "Korea");
+
+    else if (b == 14)
+        Search_Country(cty, "Mexico");
+
+    else if (b == 15)
+        Search_Country(cty, "New Zealand");
+
+    else if (b == 16)
+        Search_Country(cty, "Morocco");
+
+    else if (b == 17)
+        Search_Country(cty, "Portugal");
+
+    else if (b == 18)
+        Search_Country(cty, "Peru");
+
+    else if (b == 19)
+        Search_Country(cty, "Republic of Turkey");
+
+    else if (b == 20)
+        Search_Country(cty, "Republic of Kazakhstan");
+
+    else if (b == 21)
+        Search_Country(cty, "South Africa");
+
+    else if (b == 22)
+        Search_Country(cty, "United Kingdom");
+
+    else if (b == 23)
+        Search_Country(cty, "United States of America");
+
+    else
+        printf("Inappropriate Input.\n");
+
+    //3. Rank Countries(TOP5) by gdp/Population
+
+    //4. Capital Quiz
+}
+#endif
+
+
+void Quiz(country_t *country){
+    
+    char answer[50];
+
+    int number_of_quiz_question = 10;
+    // int NUM_CTR = 18;
+    int score = 0;
+
+    srand(time(NULL));
+
+    int array[NUM_CTR];
+
+    for (int i = 0; i < NUM_CTR; i++) {     // fill array
+    array[i] = i;
+    }
+
+
+    for (int i = 0; i < NUM_CTR; i++) {    // shuffle array
+        int temp = array[i];
+        int randomIndex = rand() % NUM_CTR;
+
+        array[i]  = array[randomIndex];
+        array[randomIndex] = temp;
+    }
+
+
+    for(int i=0; i<number_of_quiz_question; i++){
+        
+        int n = array[i];
+        int q= rand()%2+1;
+
+        printf("%d. ", i+1);
+
+        if(q==1){
+            printf("Which country has the capital %s?\n", country[n].capital_name);
+            scanf("%s", answer);
+
+            if(strcmp(answer, country[n].country_name)!=0){
+                printf("Correct Answer!!\n");
+                score++;
+            }
+            else if(strcmp(answer, "quit")!=0){
+                break;
+            }
+            else{
+                printf("Wrong Answer!!\n");
+            }
+
+        }
+        if(q==2){
+            printf("What is the capital of %s?\n", country[n].country_name);
+            scanf("%s", answer);
+
+            if(strcmp(answer, country[n].capital_name)!=0){
+                printf("Correct Answer!!\n");
+                score++;
+            }else if(strcmp(answer, "quit")!=0){
+                break;
+            }
+            else{
+                printf("Wrong Answer!!\n");
+            }
+        }
+
+    }
+    printf("\n\nYour score is %d", score);
+    
+}
+
 
 void ABCD(country_t* ctr, int n){
     country_t* rk = (country_t *)malloc(sizeof(country_t)*n);
@@ -231,125 +435,4 @@ void sortABC(country_t *ctr, int n)
         }
         ctr[j + 1] = key;
     }
-}
-
-void Options(){
-	
-    int option;
-    char Input[100];
-
-    
-    int i=0;
-	
-    printf("\n\nChoose the information you would like to see");
-    printf("\n\t 1 : List the country names according to the continent");
-	printf("\n\t 2: List the information of a country");
-	printf("\n\t 3 : List the countries according to the GDP");
-	printf("\n\t 4 : Test your Knowledge (Quiz)");
-    printf("\n\t 0: Quit the application");
-	printf("\n");
-    
-    while(1){
-	    scanf(" %d", &option);
-
-        switch(option){
-            case 1: 
-                printf("Enter the name of the continent you would like to see\n");
-                scanf("%s", &Input);
-                //CountryNamesList(Input);
-                break;
-
-            case 2:
-                 printf("Enter the country name you would like to see\n");
-                scanf("%s", &Input);
-                //CountryInformation(Input);
-                 break;
-
-            case 3: 
-                
-                break;
-
-            case 4: 
-                // Quiz();
-                break;
-
-            case 0:
-                printf("Application is closed\n"); 
-                exit(0);
-
-            default: 
-                printf("You have entered a wrong value\n"); 
-                break;
-
-        }
-    }
-}
-
-void Quiz(country_t *country){
-    
-    char answer[50];
-
-    int number_of_quiz_question = 10;
-    // int NUM_CTR = 18;
-    int score = 0;
-
-    srand(time(NULL));
-
-    int array[NUM_CTR];
-
-    for (int i = 0; i < NUM_CTR; i++) {     // fill array
-    array[i] = i;
-    }
-
-
-    for (int i = 0; i < NUM_CTR; i++) {    // shuffle array
-        int temp = array[i];
-        int randomIndex = rand() % NUM_CTR;
-
-        array[i]  = array[randomIndex];
-        array[randomIndex] = temp;
-    }
-
-
-    for(int i=0; i<number_of_quiz_question; i++){
-        
-        int n = array[i];
-        int q= rand()%2+1;
-
-        printf("%d. ", i+1);
-
-        if(q==1){
-            printf("Which country has the capital %s?\n", country[n].capital_name);
-            scanf("%s", answer);
-
-            if(strcmp(answer, country[n].country_name)!=0){
-                printf("Correct Answer!!\n");
-                score++;
-            }
-            else if(strcmp(answer, "quit")!=0){
-                break;
-            }
-            else{
-                printf("Wrong Answer!!\n");
-            }
-
-        }
-        if(q==2){
-            printf("What is the capital of %s?\n", country[n].country_name);
-            scanf("%s", answer);
-
-            if(strcmp(answer, country[n].capital_name)!=0){
-                printf("Correct Answer!!\n");
-                score++;
-            }else if(strcmp(answer, "quit")!=0){
-                break;
-            }
-            else{
-                printf("Wrong Answer!!\n");
-            }
-        }
-
-    }
-    printf("\n\nYour score is %d", score);
-    
 }
