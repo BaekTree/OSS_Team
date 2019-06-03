@@ -1,5 +1,7 @@
 # **JSON PARSER AND APPLICATION**  
 ### 2019 OSS TEAM PROJECT
+
+  
   
 ## What does this project do?
 This project consists of two parts : Json Parser and Application.
@@ -12,11 +14,11 @@ It then implements functions that can parse the text and find tokens.
 This Application takes list of country names in a json file.   
 It parses the text into tokens and displays the following functions respectively:   
 
-  1 : Display the parsed tokens - prints out the parsed tokens on the screen  
-  2 : Search country information by country names - information of the country selected by user is displayed  
-  3 : List the country names according to the continent- country names according to the continent selected by user is               displayed.  
-  4 : List country names according to GDP ranking - ranking of the countries according to GDP is displayed  
-  5 : Test your Knowledge (Quiz)- Capital/Country quiz of 10 questions  
+  **1 : Display the parsed tokens** - prints out the parsed tokens on the screen  
+  **2 : Search country information by country names** - information of the country selected by user is displayed  
+  **3 : List the country names according to the continent** - country names according to the continent selected by user is               displayed.  
+  **4 : List country names according to GDP ranking** - ranking of the countries according to GDP is displayed  
+  **5 : Test your Knowledge (Quiz)** - Capital/Country quiz of 10 questions  
 
 
 ## Why is this project useful?
@@ -38,7 +40,21 @@ gcc -o json_parser json_parser.c
 
 3. See the results
 
+You can select from the menu and execute the functions you want.  
 
+```bash
+
+--------------------Menu------------------------
+
+Choose the information you would like to see
+         1 : Display the parsed tokens
+         2 : Search country information by country names
+         3 : List the country names according to the continent
+         4 : List country names according to GDP ranking
+         5 : Test your Knowledge (Quiz)
+         0: Quit the application
+---------------------------------------------------
+```
 
 ## Where can I get more help, if I need it?
 
