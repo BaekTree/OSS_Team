@@ -1,11 +1,11 @@
 #include "appFunc.h"
-void Quiz(country_t *country, int n)
+void Quiz(country_t *country)
 {
 
     char answer[50];
 
     int number_of_quiz_question = 10;
-    int num = n;
+    int num = 23;
     int score = 0;
 
     srand(time(NULL));
