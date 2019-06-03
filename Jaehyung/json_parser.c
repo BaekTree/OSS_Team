@@ -150,6 +150,7 @@ int main(int argc, char *argv[]) {
             break;
 
         case 3:
+            printf(" List the countries according to the GDP\n");
             rank(country_arr, number_of_country);
             break;
 
