@@ -104,35 +104,8 @@ void ABCD(country_t *ctr, int n)
  * **/
 void rank(country_t *ctr, int n)
 {
-    for (int i = 0; i < n; i++)
-    {
-        printf("%s\n", ctr[i].country_name);
-        // printf("%s\n", ctr[i].capital_name);
-        // for (int j = 0; ctr[i].language[j][0] != '\0'; j++)
-        // {
-        //     printf("%s\n", ctr[i].language[j]);
-        // }
-        // printf("%f\n", ctr[i].gdp);
-        // printf("%s\n", ctr[i].population);
-        // printf("%s\n", ctr[i].currency);
-        // printf("%s\n", ctr[i].continent);
-        // for (int j = 0; ctr[i].legislature[j][0] != '\0'; j++)
-        // {
-        //     printf("%s\n", ctr[i].legislature[j]);
-        // }
-    }
-    printf("/////////////////////////////////////////////////\n");
-    //copy the array not to influence the original array
     country_t *rk = (country_t *)malloc(sizeof(country_t) * n);
-  for (int i = 0; i < n; i++)
-    {
-        rk[i] = ctr[i];
-        printf("    %2d  : %8s : %10lf\n", i + 1, ctr[i].country_name, ctr[i].gdp);
-    }
-    // printRank(rk, n);
-    //sort
     sortGDP(rk, n);
-    printf("doing test\n\n");
 
     //print
     printRank(rk,n);
@@ -158,10 +131,6 @@ void printRank(country_t *rk, int n)
 void sortGDP(country_t *ctr, int n)
 {
     int i, j;
-    for (int i = 0; i < n; i++)
-    {
-        printf("    %2d  : %8s : %10lf\n", i + 1, ctr[i].country_name, ctr[i].gdp);
-    }
     country_t key;
     for (i = 1; i < n; i++)
     {
@@ -170,7 +139,6 @@ void sortGDP(country_t *ctr, int n)
         /* Move elements of arr[0..i-1], that are 
           greater than key, to one position ahead 
           of their current position */
-        printf("%f : %f\n", ctr[i].gdp, key.gdp);
         while (j >= 0 && ctr[j].gdp < key.gdp)
         {
             printf("inside function?\n");
