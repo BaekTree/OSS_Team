@@ -455,7 +455,7 @@ void rank(country_t* ctr, int n){
         printf("    %2d  : %8s : %10lf\n", i + 1,ctr[i].country_name, ctr[i].gdp);
     }
     //print
-    printRank(rk,n);
+    // printRank(rk,n);
 
     free(rk);
 }
