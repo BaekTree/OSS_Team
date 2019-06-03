@@ -135,6 +135,8 @@ int main(int argc, char *argv[]) {
         {
         case 1:
             printf("Enter the name of the continent you would like to see\n");
+            printf("Continents:\n\tAsia\n\tSouth America\n\tNorth America\n\tAfrica\n\tEurope\n\tAustralasia\n");
+            printf("Your input: ");
             scanf("%s", Input);
             Search_Continent(country_arr, Input);
             // CountryNamesList(Input);
