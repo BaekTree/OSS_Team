@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include <time.h>
 #include "json_parser.h"
+#define MAX_LIMIT 20
 
 // partial string to double
 double toDouble(char* s, int start, int stop);
@@ -575,7 +576,7 @@ void Print_Continent(int num_of_c, country_t *c_arr, char *search)
 }
 
 void Quiz(int num_of_c, country_t *c_arr) {
-    char answer[128];
+    char answer[MAX_LIMIT];
     int number_of_quiz_question = 10;
     int score = 0;
     int num_check_array[num_of_c];
@@ -602,7 +603,8 @@ void Quiz(int num_of_c, country_t *c_arr) {
 
         if(q==1){
             printf("Which country has the capital %s?\n", c_arr[n].capital_name);
-            gets(answer);
+            fgets(answer, MAX_LIMIT, stdin);
+            getchar();
 
             if(strcmp(answer, c_arr[n].country_name)==0){
                 printf("Correct Answer!!\n");
@@ -616,7 +618,8 @@ void Quiz(int num_of_c, country_t *c_arr) {
         }
         if(q==2){
             printf("What is the capital of %s?\n", c_arr[n].country_name);
-            gets(answer);
+            fgets(answer, MAX_LIMIT, stdin);
+            getchar();
 
             if(strcmp(answer, c_arr[n].capital_name)==0){
                 printf("Correct Answer!!\n");
