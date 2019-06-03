@@ -310,21 +310,6 @@
             }
         },
         {
-            "United Kingdom": {
-                "Capital": "London",
-                "Language": [
-                    "English"
-                ],
-                "GDP": 3.028,
-                "Population": "66.92 million",
-                "Currency": "GBP",
-                "Legislature": [
-                    "Unitary parliamentary constitutional monarchy"
-                ],
-                "Continent": "Europe"
-            }
-        },
-        {
             "Egypt": {
                 "Capital": "Cairo",
                 "Language": [
