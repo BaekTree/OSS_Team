@@ -2,19 +2,20 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#include "json_parser.h"
 
-typedef struct
-{
-    char country_name[30];
-    char capital_name[30];
-    char language[10][30]; 
-    double gdp;            
-    char population[30];
-    char currency[5];
-    char legislature[10][30]; 
-    char continent[30];
-} country_t;
-#define NUM_CTR 30
+// typedef struct
+// {
+//     char country_name[30];
+//     char capital_name[30];
+//     char language[10][30]; 
+//     double gdp;            
+//     char population[30];
+//     char currency[5];
+//     char legislature[10][30]; 
+//     char continent[30];
+// } country_t;
+// #define NUM_CTR 30
 
 void Options();
 void sortABC(country_t *ctr, int n);
