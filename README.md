@@ -17,6 +17,12 @@
   
 ## To run our project
 
-1. Compile the parser1.c file with gcc or other c compilers
-2. Run the program with "./parser1"
+1. Compile the json_parser.c file with gcc or other c compilers
+
+gcc -c json_parser.c
+gcc -o json_parser json_parser.c
+
+2. Run the program with "./json_parser"
+
 3. See the results
+
