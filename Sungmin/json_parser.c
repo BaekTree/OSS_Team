@@ -4,7 +4,7 @@
 #include <ctype.h>
 #include <time.h>
 #include "json_parser.h"
-#define MAX_LIMIT 20
+#define MAX_LIMIT 128
 
 // partial string to double
 double toDouble(char* s, int start, int stop);
