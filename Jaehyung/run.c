@@ -330,26 +330,27 @@ int main()
 #endif
 
 
-void Quiz(country_t *country){
+void Quiz(country_t *country, int n){
     
     char answer[50];
 
     int number_of_quiz_question = 10;
-    // int NUM_CTR = 18;
+    int num = n;
     int score = 0;
 
     srand(time(NULL));
 
-    int array[NUM_CTR];
+    int* array = (int*)malloc(sizeof(int*)*num);
 
-    for (int i = 0; i < NUM_CTR; i++) {     // fill array
-    array[i] = i;
+    for (int i = 0; i < num; i++)
+    { // fill array
+        array[i] = i;
     }
 
-
-    for (int i = 0; i < NUM_CTR; i++) {    // shuffle array
+    for (int i = 0; i < num; i++)
+    { // shuffle array
         int temp = array[i];
-        int randomIndex = rand() % NUM_CTR;
+        int randomIndex = rand() % num;
 
         array[i]  = array[randomIndex];
         array[randomIndex] = temp;
@@ -397,7 +398,7 @@ void Quiz(country_t *country){
     }
     fflush(stdin);
     printf("\n\nYour score is %d", score);
-    
+    free(array);
 }
 
 
