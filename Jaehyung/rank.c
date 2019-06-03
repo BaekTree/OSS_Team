@@ -117,6 +117,7 @@ void rank(country_t* ctr, int n){
     printRank(rk, n);
     printf("teset done\n");
 
+
     //sort
     sortGDP(rk,n);
     
