@@ -1,16 +1,18 @@
 # **JSON PARSER AND APPLICATION**  
-### 2019 OSS TEAM PROJECT
+### 2019 OSS TEAM PROJECT   
+2019-1 / ECE20019 - 04 Open Source Software  
+Group 4
 
-  
-  
+                    
+    
 ## What does this project do?
 This project consists of two parts : Json Parser and Application.
 
-### Json Parser
+### I. Json Parser
 This program takes .json file name as an input argument.  
 It then implements functions that can parse the text and find tokens.  
 
-### Application : Country-pedia
+### II. Application : Country-pedia
 This Application takes list of country names in a json file.   
 It parses the text into tokens and displays the following functions respectively:   
 
@@ -22,6 +24,10 @@ It parses the text into tokens and displays the following functions respectively
 
 
 ## Why is this project useful?
+
+This project is useful because you can easily get information about different countries in different continents.  
+You can get sorted information alphabetically, and GDP wise also.
+After you have studied about the countries, you can also test your knowledge with the quiz in the application. 
 
 
 ## How do I get started?
