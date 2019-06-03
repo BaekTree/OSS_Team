@@ -50,6 +50,8 @@ void ABCD(country_t *ctr, int n);
 // c_arr quiz asking capital and name
 void Quiz(int num_of_c, country_t* c_arr);
 
+void menutest();
+
 int main(int argc, char *argv[]) {
     FILE *fp;
     const int maxLen = 256;
@@ -379,7 +381,7 @@ int json_parser(int length, int token_array_size, tok_t* token_arr, char* data) 
 }
 
 void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr) {
-    ABCD(c_arr, num_of_c);
+    // ABCD(c_arr, num_of_c);
 
     int option;
     
@@ -410,7 +412,7 @@ void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr
                 break;            
             
             case 4: // GDP Rank
-                rank(c_arr, num_of_c);
+                // rank(c_arr, num_of_c);
                 break;
             case 5: // Quiz
                 Quiz(num_of_c, c_arr);
@@ -427,11 +429,10 @@ void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr
     }
 }
 
-
 // Search Informations by Country
 void Search_Country(int num_of_c, country_t *c_arr){
     printf("\n\nSelect Country Number \n [ 1.Argentina 2.Australia 3.Brazil 4.Canada 5.China 6.Cambodia 7.Egypt 8.Germany 9.Greece \n10.India 11.Indonesia 12.Japan 13.Korea 14.Mexico 15.New Zealand 16.Morocco 17.Portugal \n18.Peru 19.Republic of Turkey 20.Republic of Kazakhstan 21.South Africa 22.United Kingdom \n23.United States of America] \n: ");
-    /*
+   /* 
     scanf("%d", &b);
 
     if (b == 1)
@@ -571,7 +572,6 @@ void Print_Continent(int num_of_c, country_t *c_arr, char *search)
     }
 }
 
-
 void Quiz(int num_of_c, country_t *c_arr) {
     char answer[128];
     int number_of_quiz_question = 10;
@@ -602,7 +602,7 @@ void Quiz(int num_of_c, country_t *c_arr) {
             printf("Which country has the capital %s?\n", c_arr[n].capital_name);
             scanf("%s", answer);
 
-            if(strcmp(answer, c_arr[n].country_name)!=0){
+            if(strcmp(answer, c_arr[n].country_name)==0){
                 printf("Correct Answer!!\n");
                 score++;
             }
@@ -615,7 +615,7 @@ void Quiz(int num_of_c, country_t *c_arr) {
             printf("What is the capital of %s?\n", c_arr[n].country_name);
             scanf("%s", answer);
 
-            if(strcmp(answer, c_arr[n].capital_name)!=0){
+            if(strcmp(answer, c_arr[n].capital_name)==0){
                 printf("Correct Answer!!\n");
                 score++;
             }
@@ -639,9 +639,9 @@ void sortGDP(country_t *ctr, int n)
     {
         key = ctr[i];
         j = i - 1;
-        /* Move elements of arr[0..i-1], that are 
-          greater than key, to one position ahead 
-          of their current position */
+        // Move elements of arr[0..i-1], that are 
+        //   greater than key, to one position ahead 
+        //   of their current position 
         while (j >= 0 && ctr[j].gdp < key.gdp)
         {
 
@@ -662,9 +662,9 @@ void sortABC(country_t *ctr, int n)
         key = ctr[i];
         j = i - 1;
 
-        /* Move elements of arr[0..i-1], that are 
-          greater than key, to one position ahead 
-          of their current position */
+        // Move elements of arr[0..i-1], that are 
+        //   greater than key, to one position ahead 
+        //   of their current position 
 
         while (j >= 0 && strcmp(key.country_name, ctr[j].country_name) < 0)
         {
