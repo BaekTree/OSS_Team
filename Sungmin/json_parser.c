@@ -101,11 +101,10 @@ int main(int argc, char *argv[]) {
     free(token_arr);
     free(country_arr);
 
-    //return should be tok_t array for the application program
     return 0;
 }
 
-
+/* Functions */
 double toDouble(char* s, int start, int stop) {
     char d_arr[16];
     double d;
