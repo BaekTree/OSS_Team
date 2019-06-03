@@ -602,9 +602,15 @@ void Quiz(int num_of_c, country_t *c_arr) {
         printf("\n%d. ", i+1);
 
         if(q==1){
+           
             printf("Which country has the capital %s?\n", c_arr[n].capital_name);
-            fgets(answer, MAX_LIMIT, stdin);
             getchar();
+            fgets(answer, MAX_LIMIT, stdin);
+            if(answer[strlen(answer) - 1] == '\n')
+                answer[strlen(answer) - 1] = '\0';        
+            fflush(stdin);
+            
+            
 
             if(strcmp(answer, c_arr[n].country_name)==0){
                 printf("Correct Answer!!\n");
@@ -617,9 +623,14 @@ void Quiz(int num_of_c, country_t *c_arr) {
 
         }
         if(q==2){
+            //fflush(stdin);
             printf("What is the capital of %s?\n", c_arr[n].country_name);
-            fgets(answer, MAX_LIMIT, stdin);
             getchar();
+            fgets(answer, MAX_LIMIT, stdin);
+            if(answer[strlen(answer) - 1] == '\n')
+                answer[strlen(answer) - 1] = '\0';  
+            fflush(stdin);
+           
 
             if(strcmp(answer, c_arr[n].capital_name)==0){
                 printf("Correct Answer!!\n");
