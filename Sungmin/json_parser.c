@@ -61,6 +61,7 @@ int main(int argc, char *argv[]) {
 
     //file open
     if (argc == 1) {        // if there is no argument
+        // fp = fopen("countries.json", "r");
         fp = fopen("../Testfiles/countries.json", "r");
     }
     else {                  // get the file name from input
