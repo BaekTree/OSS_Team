@@ -89,20 +89,20 @@ int main(int argc, char *argv[]) {
     int number_of_country = country_maker(num_of_token, token_arr, data, country_arr);
 
     //print out the country array 
-    // for (int i = 0; i < number_of_country; i++) {
-    //     printf("%s\n", country_arr[i].country_name);
-    //     printf("%s\n", country_arr[i].capital_name);
-    //     for (int j = 0; country_arr[i].language[j][0] != '\0'; j++){
-    //         printf("%s\n", country_arr[i].language[j]);
-    //     }
-    //     printf("%f\n", country_arr[i].gdp);
-    //     printf("%s\n", country_arr[i].population);
-    //     printf("%s\n", country_arr[i].currency);
-    //     printf("%s\n", country_arr[i].continent);
-    //     for (int j = 0; country_arr[i].legislature[j][0] != '\0'; j++){
-    //         printf("%s\n", country_arr[i].legislature[j]);
-    //     }
-    // }
+    for (int i = 0; i < number_of_country; i++) {
+        printf("%s\n", country_arr[i].country_name);
+        printf("%s\n", country_arr[i].capital_name);
+        for (int j = 0; country_arr[i].language[j][0] != '\0'; j++){
+            printf("%s\n", country_arr[i].language[j]);
+        }
+        printf("%f\n", country_arr[i].gdp);
+        printf("%s\n", country_arr[i].population);
+        printf("%s\n", country_arr[i].currency);
+        printf("%s\n", country_arr[i].continent);
+        for (int j = 0; country_arr[i].legislature[j][0] != '\0'; j++){
+            printf("%s\n", country_arr[i].legislature[j]);
+        }
+    }
     
 
     // memory free
