@@ -602,7 +602,7 @@ void Quiz(int num_of_c, country_t *c_arr) {
 
         if(q==1){
             printf("Which country has the capital %s?\n", c_arr[n].capital_name);
-            gets("%s", answer);
+            gets(answer);
 
             if(strcmp(answer, c_arr[n].country_name)==0){
                 printf("Correct Answer!!\n");
@@ -616,7 +616,7 @@ void Quiz(int num_of_c, country_t *c_arr) {
         }
         if(q==2){
             printf("What is the capital of %s?\n", c_arr[n].country_name);
-            gets("%s", answer);
+            gets(answer);
 
             if(strcmp(answer, c_arr[n].capital_name)==0){
                 printf("Correct Answer!!\n");
