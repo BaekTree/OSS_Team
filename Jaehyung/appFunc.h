@@ -1,5 +1,4 @@
 #include "json_parser.h"
-#include "appFunc.h"
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
