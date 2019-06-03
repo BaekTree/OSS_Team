@@ -10,10 +10,10 @@ double toDouble(char* s, int start, int stop);
 // print out the token array in form
 void print_array(int num_of_t, tok_t *t_arr, char *data);
 
-// filling the country array
+// filling the country array and returns number of countries
 int country_maker(int num_of_tok, tok_t *t_arr, char *data, country_t *c_arr);
 
-// parsing the json file
+// parsing the json file returns the number of tokens
 int json_parser(int length, int token_array_size, tok_t* token_arr, char* data);
 
 int main(int argc, char *argv[]) {
