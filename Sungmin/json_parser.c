@@ -42,10 +42,10 @@ void sortGDP(country_t *ctr, int n);
 void printRank(country_t *rk, int n);
 
 //sort countries in GDP ranking
-void rank(country_t *ctr, int n);
+//void rank(country_t *ctr, int n);
 
 //sot countries in alphabetical order
-void ABCD(country_t *ctr, int n);
+//void ABCD(country_t *ctr, int n);
 
 // c_arr quiz asking capital and name
 void Quiz(int num_of_c, country_t* c_arr);
@@ -431,78 +431,79 @@ void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr
 
 // Search Informations by Country
 void Search_Country(int num_of_c, country_t *c_arr){
+    int b;
     printf("\n\nSelect Country Number \n [ 1.Argentina 2.Australia 3.Brazil 4.Canada 5.China 6.Cambodia 7.Egypt 8.Germany 9.Greece \n10.India 11.Indonesia 12.Japan 13.Korea 14.Mexico 15.New Zealand 16.Morocco 17.Portugal \n18.Peru 19.Republic of Turkey 20.Republic of Kazakhstan 21.South Africa 22.United Kingdom \n23.United States of America] \n: ");
    /* 
     scanf("%d", &b);
 
     if (b == 1)
-        Print_Country(num_of_c, c_arr "Argentina");
+        Print_Country(num_of_c, c_arr ,"Argentina");
 
     else if (b == 2)
-        Print_Country(num_of_c, c_arr "Australia");
+        Print_Country(num_of_c, c_arr ,"Australia");
 
     else if (b == 3)
-        Print_Country(num_of_c, c_arr "Brazil");
+        Print_Country(num_of_c, c_arr, "Brazil");
 
     else if (b == 4)
-        Print_Country(num_of_c, c_arr "Canada");
+        Print_Country(num_of_c, c_arr ,"Canada");
 
     else if (b == 5)
-        Print_Country(num_of_c, c_arr "China");
+        Print_Country(num_of_c, c_arr ,"China");
 
     else if (b == 6)
-        Print_Country(num_of_c, c_arr "Cambodia");
+        Print_Country(num_of_c, c_arr ,"Cambodia");
 
     else if (b == 7)
-        Print_Country(num_of_c, c_arr "Egypt");
+        Print_Country(num_of_c, c_arr ,"Egypt");
 
     else if (b == 8)
-        Print_Country(num_of_c, c_arr "Germany");
+        Print_Country(num_of_c, c_arr ,"Germany");
 
     else if (b == 9)
-        Print_Country(num_of_c, c_arr "Greece");
+        Print_Country(num_of_c, c_arr, "Greece");
 
     else if (b == 10)
-        Print_Country(num_of_c, c_arr "India");
+        Print_Country(num_of_c, c_arr ,"India");
 
     else if (b == 11)
-        Print_Country(num_of_c, c_arr "Indonesia");
+        Print_Country(num_of_c, c_arr ,"Indonesia");
 
     else if (b == 12)
-        Print_Country(num_of_c, c_arr "Japan");
+        Print_Country(num_of_c, c_arr ,"Japan");
 
     else if (b == 13)
-        Print_Country(num_of_c, c_arr "Korea");
+        Print_Country(num_of_c, c_arr ,"Korea");
 
     else if (b == 14)
-        Print_Country(num_of_c, c_arr "Mexico");
+        Print_Country(num_of_c, c_arr ,"Mexico");
 
     else if (b == 15)
-        Print_Country(num_of_c, c_arr "New Zealand");
+        Print_Country(num_of_c, c_arr ,"New Zealand");
 
     else if (b == 16)
-        Print_Country(num_of_c, c_arr "Morocco");
+        Print_Country(num_of_c, c_arr ,"Morocco");
 
     else if (b == 17)
-        Print_Country(num_of_c, c_arr "Portugal");
+        Print_Country(num_of_c, c_arr ,"Portugal");
 
     else if (b == 18)
-        Print_Country(num_of_c, c_arr "Peru");
+        Print_Country(num_of_c, c_arr ,"Peru");
 
     else if (b == 19)
-        Print_Country(num_of_c, c_arr "Republic of Turkey");
+        Print_Country(num_of_c, c_arr ,"Republic of Turkey");
 
     else if (b == 20)
-        Print_Country(num_of_c, c_arr "Republic of Kazakhstan");
+        Print_Country(num_of_c, c_arr ,"Republic of Kazakhstan");
 
     else if (b == 21)
-        Print_Country(num_of_c, c_arr "South Africa");
+        Print_Country(num_of_c, c_arr ,"South Africa");
 
     else if (b == 22)
-        Print_Country(num_of_c, c_arr "United Kingdom");
+        Print_Country(num_of_c, c_arr, "United Kingdom");
 
     else if (b == 23)
-        Print_Country(num_of_c, c_arr "United States of America");
+        Print_Country(num_of_c, c_arr, "United States of America");
 
     else
         printf("Inappropriate Input.\n");
@@ -608,6 +609,7 @@ void Quiz(int num_of_c, country_t *c_arr) {
             }
             else{
                 printf("Wrong Answer!!\n");
+                printf("The correct answer is \"%s\".\n", c_arr[n].country_name);
             }
 
         }
@@ -621,6 +623,7 @@ void Quiz(int num_of_c, country_t *c_arr) {
             }
             else{
                 printf("Wrong Answer!!\n");
+                  printf("The correct answer is \"%s\".\n", c_arr[n].capital_name);
             }
         }
 
@@ -628,7 +631,6 @@ void Quiz(int num_of_c, country_t *c_arr) {
     printf("\n\nYour score is %d", score);
     return;    
 }
-
 
 //insertionsort by GDP
 void sortGDP(country_t *ctr, int n)
