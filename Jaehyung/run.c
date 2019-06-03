@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
 
 typedef struct
 {
@@ -22,7 +23,8 @@ void printRank(country_t *rk, int n);
 void rank(country_t* ctr, int n);
 void ABCD(country_t* ctr, int n);
 void Quiz(country_t *country);
-
+void Search_Continent(country_t *cty, char *search);
+void Search_Country(country_t *cty, char *search);
 
 int main(){
 
@@ -54,17 +56,68 @@ int main(){
 
     // printf("%s\n", test[0].country_name);
 
-    for (int i = 0; i < 30; i++) {
-        printf("%s\n", test[i].country_name);
-        printf("%s\n", test[i].capital_name);
-        printf("%s\n", test[i].continent);
-        printf("%s\n", test[i].currency);
-        printf("%s\n", test[i].population);
-        printf("%f\n", test[i].gdp);
-    }
+    // for (int i = 0; i < 30; i++) {
+    //     printf("%s\n", test[i].country_name);
+    //     printf("%s\n", test[i].capital_name);
+    //     printf("%s\n", test[i].continent);
+    //     printf("%s\n", test[i].currency);
+    //     printf("%s\n", test[i].population);
+    //     printf("%f\n", test[i].gdp);
+    // }
     //***********************************Test Dummies set done********************************//
 
-    Options();
+    int option;
+    char Input[100];
+
+    
+    int i=0;
+
+    while(1){
+        system("cls");
+        printf("\n\nChoose the information you would like to see");
+        printf("\n\t 1 : List the country names according to the continent");
+        printf("\n\t 2: List the information of a country");
+        printf("\n\t 3 : List the countries according to the GDP");
+        printf("\n\t 4 : Test your Knowledge (Quiz)");
+        printf("\n\t 0: Quit the application");
+        printf("\nYour Input: ");
+        
+	    scanf("%d", &option);
+
+        switch(option){
+            case 1: 
+                printf("Enter the name of the continent you would like to see\n");
+                scanf("%s", Input);
+                Search_Continent(test,Input);
+                // CountryNamesList(Input);
+                break;
+
+            case 2:
+                 printf("Enter the country name you would like to see\n");
+                scanf("%s", Input);
+                Search_Country(test,Input);
+                // CountryInformation(Input);
+                 break;
+
+            case 3: 
+                rank(test,NUM_CTR);
+                break;
+
+            case 4: 
+                Quiz(test);
+                break;
+
+            case 0:
+                printf("Application is closed\n"); 
+                exit(0);
+
+            default: 
+                printf("You have entered a wrong value\n"); 
+                break;
+
+        }
+    }
+
 
     return 1;
 }
@@ -91,7 +144,7 @@ void Options(){
             case 1: 
                 printf("Enter the name of the continent you would like to see\n");
                 scanf("%s", Input);
-                //CountryNamesList(Input);
+                // CountryNamesList(Input);
                 break;
 
             case 2:
@@ -117,6 +170,8 @@ void Options(){
                 break;
 
         }
+        char next;
+        scanf("Enter any key to proceed: %c",&next);
     }
 }
 
@@ -131,6 +186,8 @@ void Search_Continent(country_t *cty, char *search)
             printf("%s\n", cty[i].country_name);
     }
 }
+
+
 void Search_Country(country_t *cty, char *search)
 {
     for (int i = 0, j = 0; i < 24; i++)
@@ -336,6 +393,7 @@ void Quiz(country_t *country){
         }
 
     }
+    fflush(stdin);
     printf("\n\nYour score is %d", score);
     
 }
