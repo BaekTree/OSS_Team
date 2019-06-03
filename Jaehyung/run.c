@@ -425,7 +425,23 @@ void ABCD(country_t* ctr, int n){
  * definition: rank the tokeny array in GDP and print the result
  * **/
 void rank(country_t* ctr, int n){
-
+    for (int i = 0; i < n; i++)
+    {
+        printf("%s\n", country_arr[i].country_name);
+        printf("%s\n", country_arr[i].capital_name);
+        for (int j = 0; country_arr[i].language[j][0] != '\0'; j++)
+        {
+            printf("%s\n", country_arr[i].language[j]);
+        }
+        printf("%f\n", country_arr[i].gdp);
+        printf("%s\n", country_arr[i].population);
+        printf("%s\n", country_arr[i].currency);
+        printf("%s\n", country_arr[i].continent);
+        for (int j = 0; country_arr[i].legislature[j][0] != '\0'; j++)
+        {
+            printf("%s\n", country_arr[i].legislature[j]);
+        }
+    }
     //copy the array not to influence the original array
     country_t* rk = (country_t *)malloc(sizeof(country_t)*n);
     for(int i = 0 ; i < n ; i ++){
