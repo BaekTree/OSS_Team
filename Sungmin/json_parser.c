@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
     int num_of_token = json_parser(length, token_array_size, token_arr, data);       // number of tokens
 
     // print out the token array
-    print_array(num_of_token, token_arr, data);
+    // print_array(num_of_token, token_arr, data);
 
     // declaring country array dynamically
     country_t *country_arr;
