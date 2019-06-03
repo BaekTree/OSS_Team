@@ -105,10 +105,6 @@ int main(int argc, char *argv[]) {
     }
     
 
-    // memory free
-    free(data);
-    free(token_arr);
-    free(country_arr);
 
 
 //****************Application*****************//
@@ -168,6 +164,10 @@ int main(int argc, char *argv[]) {
         }
     }
 
+    // memory free
+    free(data);
+    free(token_arr);
+    free(country_arr);
     return 0;
 }
 #endif
