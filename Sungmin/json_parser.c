@@ -598,11 +598,11 @@ void Quiz(int num_of_c, country_t *c_arr) {
         int n = num_check_array[i];
         int q = rand()%2+1;
 
-        printf("%d. ", i+1);
+        printf("\n%d. ", i+1);
 
         if(q==1){
             printf("Which country has the capital %s?\n", c_arr[n].capital_name);
-            scanf("%s", answer);
+            gets("%s", answer);
 
             if(strcmp(answer, c_arr[n].country_name)==0){
                 printf("Correct Answer!!\n");
@@ -616,7 +616,7 @@ void Quiz(int num_of_c, country_t *c_arr) {
         }
         if(q==2){
             printf("What is the capital of %s?\n", c_arr[n].country_name);
-            scanf("%s", answer);
+            gets("%s", answer);
 
             if(strcmp(answer, c_arr[n].capital_name)==0){
                 printf("Correct Answer!!\n");
