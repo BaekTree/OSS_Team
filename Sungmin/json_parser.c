@@ -2,32 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-
-typedef enum {
-    UNDEFINED = 0, 
-    OBJECT = 1, 
-    ARRAY = 2, 
-    STRING = 3, 
-    PRIMITIVE = 4
-} type_t;
-
-typedef struct {
-    type_t type; // Token type
-    int start; // Token start position
-    int end;  // Token end position
-    int size; // Number of child (nested) tokens
-} tok_t;
-
-typedef struct {
-    char country_name[128];
-    char capital_name[128];
-    char language[8][64];
-    double gdp;
-    char population[32];
-    char currency[4];
-    char legislature[8][64];
-    char continent[32];
-} country_t;
+#include "json_parser.h"
 
 double toDouble(char* s, int start, int stop) {
     char d_arr[16];
@@ -60,8 +35,6 @@ int country_maker(int num_of_tok, tok_t *t_arr, char *data, country_t *c_arr){
     int length;
     int num_of_con = 0;
     double gdp;
-    
-    printf ("%d\n",num_of_tok);
 
     for (int i = 4, j = 0; i < num_of_tok; i++, j++) {
         num_of_con++;
@@ -70,13 +43,11 @@ int country_maker(int num_of_tok, tok_t *t_arr, char *data, country_t *c_arr){
         length = t_arr[i].end - t_arr[i].start;
         strncpy(c_arr[j].country_name, data + t_arr[i].start, length);
         i += 3;
-        // printf("%s\n", c_arr[j].country_name);
 
         // capital name
         length = t_arr[i].end - t_arr[i].start;
         strncpy(c_arr[j].capital_name, data + t_arr[i].start, length);
         i += 3;
-        // printf("%s\n", c_arr[j].capital_name);
 
         // languages
         for(int k = 0; ; k++, i++) {
@@ -85,28 +56,21 @@ int country_maker(int num_of_tok, tok_t *t_arr, char *data, country_t *c_arr){
             strncpy(c_arr[j].language[k], data + t_arr[i].start, length);
         }
         i++;
-        // for (int k = 0; c_arr[j].language[k][0] != '\0'; k++){
-        //     printf("%s\t", c_arr[j].language[k]);
-        // }
-        // printf("\n");
 
         //GDP
         gdp = toDouble(data, t_arr[i].start, t_arr[i].end-1);
         c_arr[j].gdp = gdp;
         i += 2;
-        // printf("%f\n", c_arr[j].gdp);
 
         // population
         length = t_arr[i].end - t_arr[i].start;
         strncpy(c_arr[j].population, data + t_arr[i].start, length);
         i += 2;
-        // printf("%s\n", c_arr[j].population);
 
         // currency
         length = t_arr[i].end - t_arr[i].start;
         strncpy(c_arr[j].currency, data + t_arr[i].start, length);
         i += 3;
-        // printf("%s\n", c_arr[j].currency);
 
         // legislature
         for(int k = 0; ; k++, i++) {
@@ -116,22 +80,17 @@ int country_maker(int num_of_tok, tok_t *t_arr, char *data, country_t *c_arr){
             strncpy(c_arr[j].legislature[k], data + t_arr[i].start, length);
         }
         i++;
-        // for (int k = 0; c_arr[j].legislature[k][0] != '\0'; k++){
-        //     printf("%s\t", c_arr[j].legislature[k]);
-        // }
-        // printf("\n");
-
 
         // continent
         length = t_arr[i].end - t_arr[i].start;
         strncpy(c_arr[j].continent, data + t_arr[i].start, length);
         i++;
-        // printf("%s\n", c_arr[j].continent);
-        // printf("------------------------------\n");
-
-
     }
     return num_of_con;
+}
+
+tok_t parser() {
+
 }
 
 int main(int argc, char *argv[]) {
@@ -143,7 +102,7 @@ int main(int argc, char *argv[]) {
 
     //file open
     if (argc == 1) {        // if there is no argument
-        fp = fopen("countries.json", "r");
+        fp = fopen("../Testfiles/countries.json", "r");
     }
     else {                  // get the file name from input
         fp = fopen(argv[1], "r");
@@ -188,10 +147,10 @@ int main(int argc, char *argv[]) {
         token_arr[i].type = UNDEFINED;
     }
 
+    int num_of_token = 0;       // number of tokens
     int start_cursor = 0;       // start index of the token
     int end_cursor;             // end index of the token
     int token_size = 0;         // size of token ( :pairs )
-    int num_of_token = 0;       // number of tokens
     int is_primitive;           // flag to identify
     int cbracket_counter = 0;   // { } counter
     int sbracket_counter = 0;   // [ ] counter
@@ -364,20 +323,22 @@ int main(int argc, char *argv[]) {
     int number_of_country = country_maker(num_of_token, token_arr, data, country_arr);
 
     //print out the country array
-    // for (int i = 0; i < number_of_country; i++) {
-    //     printf("%s\n", country_arr[i].country_name);
-    //     printf("%s\n", country_arr[i].capital_name);
-    //     for (int j = 0; country_arr[i].language[j][0] != '\0'; j++){
-    //         printf("%s\n", country_arr[i].language[j]);
-    //     }
-    //     printf("%f\n", country_arr[i].gdp);
-    //     printf("%s\n", country_arr[i].population);
-    //     printf("%s\n", country_arr[i].currency);
-    //     printf("%s\n", country_arr[i].continent);
-    //     for (int j = 0; country_arr[i].legislature[j][0] != '\0'; j++){
-    //         printf("%s\n", country_arr[i].legislature[j]);
-    //     }
-    // }
+    /*
+    for (int i = 0; i < number_of_country; i++) {
+        printf("%s\n", country_arr[i].country_name);
+        printf("%s\n", country_arr[i].capital_name);
+        for (int j = 0; country_arr[i].language[j][0] != '\0'; j++){
+            printf("%s\n", country_arr[i].language[j]);
+        }
+        printf("%f\n", country_arr[i].gdp);
+        printf("%s\n", country_arr[i].population);
+        printf("%s\n", country_arr[i].currency);
+        printf("%s\n", country_arr[i].continent);
+        for (int j = 0; country_arr[i].legislature[j][0] != '\0'; j++){
+            printf("%s\n", country_arr[i].legislature[j]);
+        }
+    }
+    */
 
     // memory free
     free(data);
