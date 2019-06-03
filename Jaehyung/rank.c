@@ -21,7 +21,7 @@ void sortGDP(country_t *ctr, int n);
 void ABCD(country_t* ctr, int n);
 
 
-#if 0
+
 int main(){
 
 country_t *test;
@@ -83,7 +83,6 @@ country_t *test;
      * **/
 
 }
-#endif
 
 void ABCD(country_t* ctr, int n){
     country_t* rk = (country_t *)malloc(sizeof(country_t)*n);
@@ -114,10 +113,7 @@ void rank(country_t* ctr, int n){
     for(int i = 0 ; i < n ; i ++){
         rk[i]=ctr[i];
     }
-    printRank(rk, n);
-    printf("teset done\n");
-
-
+    
     //sort
     sortGDP(rk,n);
     

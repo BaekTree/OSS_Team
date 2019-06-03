@@ -431,7 +431,7 @@ void rank(country_t* ctr, int n){
     for(int i = 0 ; i < n ; i ++){
         rk[i]=ctr[i];
     }
-    
+    printRank(rk, n);
     //sort
     sortGDP(rk,n);
     
