@@ -633,6 +633,62 @@ void Quiz(int num_of_c, country_t *c_arr) {
     return;    
 }
 
+void ABCD(country_t *ctr, int n)
+{
+    country_t *rk = (country_t *)malloc(sizeof(country_t) * n);
+    for (int i = 0; i < n; i++)
+    {
+        rk[i] = ctr[i];
+    }
+
+    //sort by abc
+    sortABC(rk, n);
+
+    //print
+    printf("     ----------Country List----------    \n");
+    for (int i = 0; i < n; i++)
+    {
+        printf("     %s\n", rk[i].country_name);
+    }
+    free(rk);
+}
+
+/**
+ * Function rank
+ * definition: rank the tokeny array in GDP and print the result
+ * **/
+void rank(country_t *ctr, int n)
+{
+    //copy the array not to influence the original array
+    country_t *rk = (country_t *)malloc(sizeof(country_t) * n);
+    for (int i = 0; i < n; i++)
+    {
+        rk[i] = ctr[i];
+    }
+    // printRank(rk, n);
+    //sort
+    sortGDP(rk, n);
+
+    //print
+    printRank(rk,n);
+
+    free(rk);
+}
+
+/**
+ * Functoin printRank
+ * definition: print the GDP rank array
+ * **/
+void printRank(country_t *rk, int n)
+{
+    printf("     ----------Country Rank----------    \n");
+    printf("    Rank : Country : GDP\n");
+    for (int i = 0; i < n; i++)
+    {
+        printf("    %2d  : %8s : %10lf\n", i + 1, rk[i].country_name, rk[i].gdp);
+    }
+}
+
 //insertionsort by GDP
 void sortGDP(country_t *ctr, int n)
 {
@@ -642,9 +698,9 @@ void sortGDP(country_t *ctr, int n)
     {
         key = ctr[i];
         j = i - 1;
-        // Move elements of arr[0..i-1], that are 
-        //   greater than key, to one position ahead 
-        //   of their current position 
+        /* Move elements of arr[0..i-1], that are 
+          greater than key, to one position ahead 
+          of their current position */
         while (j >= 0 && ctr[j].gdp < key.gdp)
         {
 
@@ -665,9 +721,9 @@ void sortABC(country_t *ctr, int n)
         key = ctr[i];
         j = i - 1;
 
-        // Move elements of arr[0..i-1], that are 
-        //   greater than key, to one position ahead 
-        //   of their current position 
+        /* Move elements of arr[0..i-1], that are 
+          greater than key, to one position ahead 
+          of their current position */
 
         while (j >= 0 && strcmp(key.country_name, ctr[j].country_name) < 0)
         {
