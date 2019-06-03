@@ -79,22 +79,21 @@ int main(int argc, char *argv[]) {
     // fill array
     int number_of_country = country_maker(num_of_token, token_arr, data, country_arr);
 
-    //print out the country array
-    
-    for (int i = 0; i < number_of_country; i++) {
-        printf("%s\n", country_arr[i].country_name);
-        printf("%s\n", country_arr[i].capital_name);
-        for (int j = 0; country_arr[i].language[j][0] != '\0'; j++){
-            printf("%s\n", country_arr[i].language[j]);
-        }
-        printf("%f\n", country_arr[i].gdp);
-        printf("%s\n", country_arr[i].population);
-        printf("%s\n", country_arr[i].currency);
-        printf("%s\n", country_arr[i].continent);
-        for (int j = 0; country_arr[i].legislature[j][0] != '\0'; j++){
-            printf("%s\n", country_arr[i].legislature[j]);
-        }
-    }
+    //print out the country array 
+    // for (int i = 0; i < number_of_country; i++) {
+    //     printf("%s\n", country_arr[i].country_name);
+    //     printf("%s\n", country_arr[i].capital_name);
+    //     for (int j = 0; country_arr[i].language[j][0] != '\0'; j++){
+    //         printf("%s\n", country_arr[i].language[j]);
+    //     }
+    //     printf("%f\n", country_arr[i].gdp);
+    //     printf("%s\n", country_arr[i].population);
+    //     printf("%s\n", country_arr[i].currency);
+    //     printf("%s\n", country_arr[i].continent);
+    //     for (int j = 0; country_arr[i].legislature[j][0] != '\0'; j++){
+    //         printf("%s\n", country_arr[i].legislature[j]);
+    //     }
+    // }
     
 
     // memory free
@@ -103,20 +102,59 @@ int main(int argc, char *argv[]) {
     free(country_arr);
 
 
+//****************Application*****************//
 
+    int option;
+    char Input[100];
 
+    int i = 0;
 
+    while (1)
+    {
+        system("cls");
+        printf("\n\nChoose the information you would like to see");
+        printf("\n\t 1 : List the country names according to the continent");
+        printf("\n\t 2: List the information of a country");
+        printf("\n\t 3 : List the countries according to the GDP");
+        printf("\n\t 4 : Test your Knowledge (Quiz)");
+        printf("\n\t 0: Quit the application");
+        printf("\nYour Input: ");
 
+        scanf("%d", &option);
 
+        switch (option)
+        {
+        case 1:
+            printf("Enter the name of the continent you would like to see\n");
+            scanf("%s", Input);
+            Search_Continent(country_arr, Input);
+            // CountryNamesList(Input);
+            break;
 
+        case 2:
+            printf("Enter the country name you would like to see\n");
+            scanf("%s", Input);
+            Search_Country(country_arr, Input);
+            // CountryInformation(Input);
+            break;
 
+        case 3:
+            rank(country_arr, number_of_country);
+            break;
 
+        case 4:
+            Quiz(country_arr);
+            break;
 
+        case 0:
+            printf("Application is closed\n");
+            exit(0);
 
-
-
-
-
+        default:
+            printf("You have entered a wrong value\n");
+            break;
+        }
+    }
 
     return 0;
 }

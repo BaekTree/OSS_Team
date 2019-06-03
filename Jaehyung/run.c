@@ -29,30 +29,30 @@ void Search_Country(country_t *cty, char *search);
 int main(){
 
     //***********************************Test Dummies********************************//
-    country_t *test;
-    test = (country_t *)malloc(sizeof(country_t) * 30);
-    char str[20];
+    // country_t *test;
+    // test = (country_t *)malloc(sizeof(country_t) * 30);
+    // char str[20];
 
-    for (int i = 0; i < 30; i++){
-        sprintf(str, "%d", i);
+    // for (int i = 0; i < 30; i++){
+    //     sprintf(str, "%d", i);
 
-        strcpy(test[i].country_name, "country_name ");
-        strcat(test[i].country_name, str);
+    //     strcpy(test[i].country_name, "country_name ");
+    //     strcat(test[i].country_name, str);
 
-        strcpy(test[i].capital_name, "capital_name ");
-        strcat(test[i].capital_name, str);
+    //     strcpy(test[i].capital_name, "capital_name ");
+    //     strcat(test[i].capital_name, str);
 
-        strcpy(test[i].continent, "continent ");
-        strcat(test[i].continent, str);
+    //     strcpy(test[i].continent, "continent ");
+    //     strcat(test[i].continent, str);
 
-        strcpy(test[i].currency, "CUR");
+    //     strcpy(test[i].currency, "CUR");
 
-        strcpy(test[i].population, "population ");
-        strcat(test[i].population, str);
+    //     strcpy(test[i].population, "population ");
+    //     strcat(test[i].population, str);
 
-        test[i].gdp = i + 10000.123;
-        memset(str, 0, sizeof str);
-    }
+    //     test[i].gdp = i + 10000.123;
+    //     memset(str, 0, sizeof str);
+    // }
 
     // printf("%s\n", test[0].country_name);
 
