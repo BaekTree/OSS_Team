@@ -16,7 +16,7 @@ int country_maker(int num_of_tok, tok_t *t_arr, char *data, country_t *c_arr);
 // parsing the json file
 int json_parser(int length, int token_array_size, tok_t* token_arr, char* data);
 
-#if 0
+#if 1
 int main(int argc, char *argv[]) {
     FILE *fp;
     const int maxLen = 256;
