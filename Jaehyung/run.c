@@ -450,7 +450,8 @@ void rank(country_t* ctr, int n){
     // printRank(rk, n);
     //sort
     sortGDP(rk,n);
-        for(int i = 0 ; i < n ; i ++){
+    printf("doing test\n\n");
+    for(int i = 0 ; i < n ; i ++){-
         rk[i]=ctr[i];
         printf("    %2d  : %8s : %10lf\n", i + 1,ctr[i].country_name, ctr[i].gdp);
     }
