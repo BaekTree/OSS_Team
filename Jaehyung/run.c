@@ -428,19 +428,19 @@ void rank(country_t* ctr, int n){
     for (int i = 0; i < n; i++)
     {
         printf("%s\n", ctr[i].country_name);
-        printf("%s\n", ctr[i].capital_name);
-        for (int j = 0; ctr[i].language[j][0] != '\0'; j++)
-        {
-            printf("%s\n", ctr[i].language[j]);
-        }
-        printf("%f\n", ctr[i].gdp);
-        printf("%s\n", ctr[i].population);
-        printf("%s\n", ctr[i].currency);
-        printf("%s\n", ctr[i].continent);
-        for (int j = 0; ctr[i].legislature[j][0] != '\0'; j++)
-        {
-            printf("%s\n", ctr[i].legislature[j]);
-        }
+        // printf("%s\n", ctr[i].capital_name);
+        // for (int j = 0; ctr[i].language[j][0] != '\0'; j++)
+        // {
+        //     printf("%s\n", ctr[i].language[j]);
+        // }
+        // printf("%f\n", ctr[i].gdp);
+        // printf("%s\n", ctr[i].population);
+        // printf("%s\n", ctr[i].currency);
+        // printf("%s\n", ctr[i].continent);
+        // for (int j = 0; ctr[i].legislature[j][0] != '\0'; j++)
+        // {
+        //     printf("%s\n", ctr[i].legislature[j]);
+        // }
     }
     //copy the array not to influence the original array
     country_t* rk = (country_t *)malloc(sizeof(country_t)*n);
