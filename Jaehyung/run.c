@@ -442,6 +442,7 @@ void rank(country_t* ctr, int n){
         //     printf("%s\n", ctr[i].legislature[j]);
         // }
     }
+    printf("/////////////////////////////////////////////////\n");
     //copy the array not to influence the original array
     country_t* rk = (country_t *)malloc(sizeof(country_t)*n);
     for(int i = 0 ; i < n ; i ++){
