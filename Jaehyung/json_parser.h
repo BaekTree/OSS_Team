@@ -1,3 +1,6 @@
+
+#ifndef JSON_PARSER
+#define JSON_PARSER
 typedef enum {
     UNDEFINED = 0, 
     OBJECT = 1, 
@@ -23,3 +26,4 @@ typedef struct {
     char legislature[8][64];
     char continent[32];
 } country_t;
+#endif

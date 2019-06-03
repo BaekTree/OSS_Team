@@ -1,3 +1,6 @@
+#ifndef APPFUNC
+#define APPFUNC
+
 #include "json_parser.h"
 #include <time.h>
 #include <stdio.h>
@@ -244,3 +247,4 @@ void Search_Country(country_t *cty, char *search)
     }
 }
 
+#endif
