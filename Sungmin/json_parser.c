@@ -405,11 +405,11 @@ void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr
                 print_array(num_of_t, t_arr, data);
                 break;
 
-            case 2: // All countries
+            case 2: // Search Country Information
                 Search_Country(num_of_c, c_arr);
                  break;
 
-            case 3: // Countries by continent
+            case 3: // Search Countries by Continent
                 Search_Continent(num_of_c, c_arr);
                 break;            
             
@@ -435,7 +435,7 @@ void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr
 void Search_Country(int num_of_c, country_t *c_arr){
     int b;
     printf("\n\nSelect Country Number \n [ 1.Argentina 2.Australia 3.Brazil 4.Canada 5.China 6.Cambodia 7.Egypt 8.Germany 9.Greece \n10.India 11.Indonesia 12.Japan 13.Korea 14.Mexico 15.New Zealand 16.Morocco 17.Portugal \n18.Peru 19.Republic of Turkey 20.Republic of Kazakhstan 21.South Africa 22.United Kingdom \n23.United States of America] \n: ");
-   /* 
+    
     scanf("%d", &b);
 
     if (b == 1)
@@ -509,7 +509,7 @@ void Search_Country(int num_of_c, country_t *c_arr){
 
     else
         printf("Inappropriate Input.\n");
-    */
+    
 }
 
 void Print_Country(int num_of_c, country_t *c_arr, char *search) {
