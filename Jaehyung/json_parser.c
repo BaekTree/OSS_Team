@@ -3,6 +3,8 @@
 #include <string.h>
 #include <ctype.h>
 #include "json_parser.h"
+#include "appFunc.h"
+
 void Options();
 void sortABC(country_t *ctr, int n);
 void sortGDP(country_t *ctr, int n);
