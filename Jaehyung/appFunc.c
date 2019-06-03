@@ -135,7 +135,7 @@ void rank(country_t *ctr, int n)
     printf("doing test\n\n");
 
     //print
-    // printRank(rk,n);
+    printRank(rk,n);
 
     free(rk);
 }
@@ -171,7 +171,7 @@ void sortGDP(country_t *ctr, int n)
           greater than key, to one position ahead 
           of their current position */
         printf("%f : %f\n", ctr[i].gdp, key.gdp);
-        while (j >= 0 && ctr[i].gdp > key.gdp)
+        while (j >= 0 && ctr[j].gdp > key.gdp)
         {
             printf("inside function?\n");
 
