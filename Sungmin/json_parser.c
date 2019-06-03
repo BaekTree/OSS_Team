@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <time.h>
 #include "json_parser.h"
 
 // partial string to double
@@ -10,11 +11,17 @@ double toDouble(char* s, int start, int stop);
 // print out the token array in form
 void print_array(int num_of_t, tok_t *t_arr, char *data);
 
-// filling the country array and returns number of countries
+// filling the c_arr array and returns number of countries
 int country_maker(int num_of_tok, tok_t *t_arr, char *data, country_t *c_arr);
 
 // parsing the json file returns the number of tokens
 int json_parser(int length, int token_array_size, tok_t* token_arr, char* data);
+
+// display menu
+void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr);
+
+// c_arr quiz asking capital and name
+void Quiz(int num_of_c, country_t* c_arr);
 
 int main(int argc, char *argv[]) {
     FILE *fp;
@@ -68,38 +75,20 @@ int main(int argc, char *argv[]) {
     // parse and return number of tokens total
     int num_of_token = json_parser(length, token_array_size, token_arr, data);       // number of tokens
 
-    // print out the token array
-    print_array(num_of_token, token_arr, data);
-
-    // declaring country array dynamically
-    country_t *country_arr;
-    country_arr = (country_t *)malloc(sizeof(country_t) * 100);
+    // declaring c_arr array dynamically
+    country_t *c_arr;
+    c_arr = (country_t *)malloc(sizeof(country_t) * 100);
 
     // fill array
-    int number_of_country = country_maker(num_of_token, token_arr, data, country_arr);
+    int num_of_c = country_maker(num_of_token, token_arr, data, c_arr);
 
-    //print out the country array
-    /*
-    for (int i = 0; i < number_of_country; i++) {
-        printf("%s\n", country_arr[i].country_name);
-        printf("%s\n", country_arr[i].capital_name);
-        for (int j = 0; country_arr[i].language[j][0] != '\0'; j++){
-            printf("%s\n", country_arr[i].language[j]);
-        }
-        printf("%f\n", country_arr[i].gdp);
-        printf("%s\n", country_arr[i].population);
-        printf("%s\n", country_arr[i].currency);
-        printf("%s\n", country_arr[i].continent);
-        for (int j = 0; country_arr[i].legislature[j][0] != '\0'; j++){
-            printf("%s\n", country_arr[i].legislature[j]);
-        }
-    }
-    */
+    // call menu
+    menu(num_of_c, num_of_token, token_arr, data, c_arr);
 
     // memory free
     free(data);
     free(token_arr);
-    free(country_arr);
+    free(c_arr);
 
     return 0;
 }
@@ -140,7 +129,7 @@ int country_maker(int num_of_tok, tok_t *t_arr, char *data, country_t *c_arr){
     for (int i = 4, j = 0; i < num_of_tok; i++, j++) {
         num_of_con++;
 
-        // country name
+        // c_arr name
         length = t_arr[i].end - t_arr[i].start;
         strncpy(c_arr[j].country_name, data + t_arr[i].start, length);
         i += 3;
@@ -357,4 +346,108 @@ int json_parser(int length, int token_array_size, tok_t* token_arr, char* data) 
         }
     }
     return num_of_token;
+}
+
+void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr) {
+    int option;
+    
+	while(1){
+        printf("\n\nChoose the information you would like to see");
+        printf("\n\t 1 : Display the parsed tokens");
+        printf("\n\t 2 : List names of all the countries");
+        printf("\n\t 3 : List the c_arr names according to the continent");
+        printf("\n\t 4 : List c_arr names according to GDP ranking");
+        printf("\n\t 5 : Test your Knowledge (Quiz)");
+        printf("\n\t 0: Quit the application");
+        printf("\n");
+    
+	    scanf("%d", &option);
+
+        switch(option){
+            case 1: // Parser output
+                // print out the token array
+                print_array(num_of_t, t_arr, data);
+                break;
+
+            case 2: // All countries
+
+                 break;
+
+            case 3: // Countries by continent
+                
+                break;            
+            
+            case 4: // GDP Rank
+                
+                break;
+            case 5: // Quiz
+                Quiz(num_of_c, c_arr);
+                break;
+
+            case 0: // Exit
+                printf("Application is closed\n");
+                return;
+
+            default: // Wrong input
+                printf("You have entered a wrong value\n"); 
+                break;
+        }
+    }
+}
+
+void Quiz(int num_of_c, country_t *c_arr) {
+    char answer[128];
+    int number_of_quiz_question = 10;
+    int score = 0;
+    int num_check_array[num_of_c];
+
+    // srand(time(NULL));
+
+    for (int i = 0; i < num_of_c; i++) {     // fill num_check_array
+        num_check_array[i] = i;
+    }
+
+    for (int i = 0; i < num_of_c; i++) {    // shuffle num_check_array
+        int temp = num_check_array[i];
+        int randomIndex = rand() % num_of_c;
+
+        num_check_array[i]  = num_check_array[randomIndex];
+        num_check_array[randomIndex] = temp;
+    }
+
+    for(int i = 0; i < number_of_quiz_question; i++){
+        int n = num_check_array[i];
+        int q = rand()%2+1;
+
+        printf("%d. ", i+1);
+
+        if(q==1){
+            printf("Which country has the capital %s?\n", c_arr[n].capital_name);
+            scanf("%s", answer);
+
+            if(strcmp(answer, c_arr[n].country_name)!=0){
+                printf("Correct Answer!!\n");
+                score++;
+            }
+            else{
+                printf("Wrong Answer!!\n");
+            }
+
+        }
+        if(q==2){
+            printf("What is the capital of %s?\n", c_arr[n].country_name);
+            scanf("%s", answer);
+
+            if(strcmp(answer, c_arr[n].capital_name)!=0){
+                printf("Correct Answer!!\n");
+                score++;
+            }
+            else{
+                printf("Wrong Answer!!\n");
+            }
+        }
+
+    }
+    printf("\n\nYour score is %d", score);
+    return;    
 }
