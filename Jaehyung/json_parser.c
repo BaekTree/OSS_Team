@@ -145,7 +145,7 @@ int main(int argc, char *argv[]) {
         case 2:
             printf("Enter the country name you would like to see\n");
             scanf("%s", Input);
-            Search_Country(country_arr, Input, number_of_country);
+            Search_Country(country_arr, Input);
             // CountryInformation(Input);
             break;
 
@@ -155,7 +155,7 @@ int main(int argc, char *argv[]) {
             break;
 
         case 4:
-            Quiz(country_arr, number_of_country);
+            Quiz(country_arr);
             break;
 
         case 0:
