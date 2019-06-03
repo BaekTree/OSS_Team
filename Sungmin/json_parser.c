@@ -31,7 +31,6 @@ void Search_Continent(int num_of_c,country_t *c_arr);
 
 // find countries that matches continent selected and print them.
 void Print_Continent(int num_of_c, country_t *c_arr, char *search);
-<<<<<<< HEAD
 
 //concrete alpabetical sort function
 void sortABC(country_t *ctr, int n);
@@ -43,28 +42,10 @@ void sortGDP(country_t *ctr, int n);
 void printRank(country_t *rk, int n);
 
 //sort countries in GDP ranking
-void rank(country_t *ctr, int n);
+//void rank(country_t *ctr, int n);
 
 //sot countries in alphabetical order
-void ABCD(country_t *ctr, int n);
-
-=======
->>>>>>> e7bbbf464f36ecaebba1c42d6cca330673a692c9
-
-//concrete alpabetical sort function
-void sortABC(country_t *ctr, int n);
-
-//concrete GDP sort function
-void sortGDP(country_t *ctr, int n);
-
-//print GDP sort rank
-void printRank(country_t *rk, int n);
-
-//sort countries in GDP ranking
-void rank(country_t *ctr, int n);
-
-//sot countries in alphabetical order
-void ABCD(country_t *ctr, int n);
+//void ABCD(country_t *ctr, int n);
 
 // c_arr quiz asking capital and name
 void Quiz(int num_of_c, country_t* c_arr);
@@ -398,11 +379,7 @@ int json_parser(int length, int token_array_size, tok_t* token_arr, char* data) 
 }
 
 void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr) {
-<<<<<<< HEAD
-    ABCD(c_arr,num_of_c);
-=======
-    ABCD(c_arr, num_of_c);
->>>>>>> e7bbbf464f36ecaebba1c42d6cca330673a692c9
+   // ABCD(c_arr, num_of_c);
 
     int option;
     
@@ -433,11 +410,7 @@ void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr
                 break;            
             
             case 4: // GDP Rank
-<<<<<<< HEAD
-                rank(c_arr,num_of_c);
-=======
-                rank(c_arr, num_of_c);
->>>>>>> e7bbbf464f36ecaebba1c42d6cca330673a692c9
+               // rank(c_arr, num_of_c);
                 break;
             case 5: // Quiz
                 Quiz(num_of_c, c_arr);
@@ -536,12 +509,7 @@ void Search_Country(int num_of_c, country_t *c_arr){
     */
 }
 
-<<<<<<< HEAD
-void Print_Country(int num_of_c, country_t *c_arr, char *search)
-{
-=======
 void Print_Country(int num_of_c, country_t *c_arr, char *search) {
->>>>>>> e7bbbf464f36ecaebba1c42d6cca330673a692c9
     for (int i = 0, j = 0; i <= num_of_c ; i++)
     {
         if (!strcmp(c_arr[i].country_name,search)){
@@ -573,24 +541,6 @@ void Search_Continent(int num_of_c,country_t *c_arr)
     scanf("%d", &a);
 
     if (a == 1)
-<<<<<<< HEAD
-        Print_Continent(num_of_c, c_arr ,"Asia");
-
-    else if (a == 2)
-        Print_Continent(num_of_c, c_arr ,"Europe");
-
-    else if (a == 3)
-        Print_Continent(num_of_c, c_arr ,"Australia");
-
-    else if (a == 4)
-        Print_Continent(num_of_c, c_arr ,"Africa");
-
-    else if (a == 5)
-        Print_Continent(num_of_c, c_arr ,"North America");
-
-    else if (a == 6)
-        Print_Continent(num_of_c, c_arr ,"South America");
-=======
         Print_Continent(num_of_c, c_arr, "Asia");
 
     else if (a == 2)
@@ -607,7 +557,6 @@ void Search_Continent(int num_of_c,country_t *c_arr)
 
     else if (a == 6)
         Print_Continent(num_of_c, c_arr, "South America");
->>>>>>> e7bbbf464f36ecaebba1c42d6cca330673a692c9
 
     else
         printf("Inappropriate Input.\n");
@@ -660,6 +609,7 @@ void Quiz(int num_of_c, country_t *c_arr) {
             }
             else{
                 printf("Wrong Answer!!\n");
+                printf("The correct answer is \"%s\".\n", c_arr[n].country_name);
             }
 
         }
@@ -673,6 +623,7 @@ void Quiz(int num_of_c, country_t *c_arr) {
             }
             else{
                 printf("Wrong Answer!!\n");
+                  printf("The correct answer is \"%s\".\n", c_arr[n].capital_name);
             }
         }
 
