@@ -170,7 +170,7 @@ void sortABC(country_t *ctr, int n)
           greater than key, to one position ahead 
           of their current position */
 
-        while (j >= 0 && strcmp(key.country_name, ctr[i].country_name) > 0)
+        while (j >= 0 && strcmp(key.country_name, ctr[j].country_name) < 0)
         {
             ctr[j + 1] = ctr[j];
             j = j - 1;
