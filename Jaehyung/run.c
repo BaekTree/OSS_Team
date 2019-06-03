@@ -427,19 +427,19 @@ void ABCD(country_t* ctr, int n){
 void rank(country_t* ctr, int n){
     for (int i = 0; i < n; i++)
     {
-        printf("%s\n", country_arr[i].country_name);
-        printf("%s\n", country_arr[i].capital_name);
-        for (int j = 0; country_arr[i].language[j][0] != '\0'; j++)
+        printf("%s\n", ctr[i].country_name);
+        printf("%s\n", ctr[i].capital_name);
+        for (int j = 0; ctr[i].language[j][0] != '\0'; j++)
         {
-            printf("%s\n", country_arr[i].language[j]);
+            printf("%s\n", ctr[i].language[j]);
         }
-        printf("%f\n", country_arr[i].gdp);
-        printf("%s\n", country_arr[i].population);
-        printf("%s\n", country_arr[i].currency);
-        printf("%s\n", country_arr[i].continent);
-        for (int j = 0; country_arr[i].legislature[j][0] != '\0'; j++)
+        printf("%f\n", ctr[i].gdp);
+        printf("%s\n", ctr[i].population);
+        printf("%s\n", ctr[i].currency);
+        printf("%s\n", ctr[i].continent);
+        for (int j = 0; ctr[i].legislature[j][0] != '\0'; j++)
         {
-            printf("%s\n", country_arr[i].legislature[j]);
+            printf("%s\n", ctr[i].legislature[j]);
         }
     }
     //copy the array not to influence the original array
