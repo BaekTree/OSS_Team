@@ -31,6 +31,7 @@ void Search_Continent(int num_of_c,country_t *c_arr);
 
 // find countries that matches continent selected and print them.
 void Print_Continent(int num_of_c, country_t *c_arr, char *search);
+<<<<<<< HEAD
 
 //concrete alpabetical sort function
 void sortABC(country_t *ctr, int n);
@@ -47,6 +48,8 @@ void rank(country_t *ctr, int n);
 //sot countries in alphabetical order
 void ABCD(country_t *ctr, int n);
 
+=======
+>>>>>>> e7bbbf464f36ecaebba1c42d6cca330673a692c9
 
 //concrete alpabetical sort function
 void sortABC(country_t *ctr, int n);
@@ -118,20 +121,23 @@ int main(int argc, char *argv[]) {
     // parse and return number of tokens total
     int num_of_token = json_parser(length, token_array_size, token_arr, data);       // number of tokens
 
-    // declaring c_arr array dynamically
-    country_t *c_arr;
-    c_arr = (country_t *)malloc(sizeof(country_t) * 100);
+    // print out the token array
+    // print_array(num_of_token, token_arr, data);
+
+    // declaring country array dynamically
+    country_t *country_arr;
+    country_arr = (country_t *)malloc(sizeof(country_t) * 100);
 
     // fill array
-    int num_of_c = country_maker(num_of_token, token_arr, data, c_arr);
+    int num_of_c = country_maker(num_of_token, token_arr, data, country_arr);
 
     // call menu
-    menu(num_of_c, num_of_token, token_arr, data, c_arr);
+    menu(num_of_token, num_of_c, token_arr, data, country_arr);
 
     // memory free
     free(data);
     free(token_arr);
-    free(c_arr);
+    free(country_arr);
 
     return 0;
 }
@@ -392,7 +398,11 @@ int json_parser(int length, int token_array_size, tok_t* token_arr, char* data) 
 }
 
 void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr) {
+<<<<<<< HEAD
     ABCD(c_arr,num_of_c);
+=======
+    ABCD(c_arr, num_of_c);
+>>>>>>> e7bbbf464f36ecaebba1c42d6cca330673a692c9
 
     int option;
     
@@ -423,7 +433,11 @@ void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr
                 break;            
             
             case 4: // GDP Rank
+<<<<<<< HEAD
                 rank(c_arr,num_of_c);
+=======
+                rank(c_arr, num_of_c);
+>>>>>>> e7bbbf464f36ecaebba1c42d6cca330673a692c9
                 break;
             case 5: // Quiz
                 Quiz(num_of_c, c_arr);
@@ -445,6 +459,7 @@ void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr
 void Search_Country(int num_of_c, country_t *c_arr){
     int b;
     printf("\n\nSelect Country Number \n [ 1.Argentina 2.Australia 3.Brazil 4.Canada 5.China 6.Cambodia 7.Egypt 8.Germany 9.Greece \n10.India 11.Indonesia 12.Japan 13.Korea 14.Mexico 15.New Zealand 16.Morocco 17.Portugal \n18.Peru 19.Republic of Turkey 20.Republic of Kazakhstan 21.South Africa 22.United Kingdom \n23.United States of America] \n: ");
+    /*
     scanf("%d", &b);
 
     if (b == 1)
@@ -518,10 +533,15 @@ void Search_Country(int num_of_c, country_t *c_arr){
 
     else
         printf("Inappropriate Input.\n");
+    */
 }
 
+<<<<<<< HEAD
 void Print_Country(int num_of_c, country_t *c_arr, char *search)
 {
+=======
+void Print_Country(int num_of_c, country_t *c_arr, char *search) {
+>>>>>>> e7bbbf464f36ecaebba1c42d6cca330673a692c9
     for (int i = 0, j = 0; i <= num_of_c ; i++)
     {
         if (!strcmp(c_arr[i].country_name,search)){
@@ -553,6 +573,7 @@ void Search_Continent(int num_of_c,country_t *c_arr)
     scanf("%d", &a);
 
     if (a == 1)
+<<<<<<< HEAD
         Print_Continent(num_of_c, c_arr ,"Asia");
 
     else if (a == 2)
@@ -569,6 +590,24 @@ void Search_Continent(int num_of_c,country_t *c_arr)
 
     else if (a == 6)
         Print_Continent(num_of_c, c_arr ,"South America");
+=======
+        Print_Continent(num_of_c, c_arr, "Asia");
+
+    else if (a == 2)
+        Print_Continent(num_of_c, c_arr, "Europe");
+
+    else if (a == 3)
+        Print_Continent(num_of_c, c_arr, "Australia");
+
+    else if (a == 4)
+        Print_Continent(num_of_c, c_arr, "Africa");
+
+    else if (a == 5)
+        Print_Continent(num_of_c, c_arr, "North America");
+
+    else if (a == 6)
+        Print_Continent(num_of_c, c_arr, "South America");
+>>>>>>> e7bbbf464f36ecaebba1c42d6cca330673a692c9
 
     else
         printf("Inappropriate Input.\n");
