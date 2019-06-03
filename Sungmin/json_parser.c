@@ -20,6 +20,18 @@ int json_parser(int length, int token_array_size, tok_t* token_arr, char* data);
 // display menu
 void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr);
 
+// scan integer input(select country) and distinguish cases --> call "Search_Country" function.
+void Search_Country(int num_of_c, country_t *c_arr)
+
+// find selected country from array and print info.
+void Print_Country(int num_of_c, country_t *c_arr, char *search)
+
+// scan integer input(select continent) and distinguish cases --> call "Search_Continent" function.
+void Search_Continent(int num_of_c,country_t *c_arr)
+
+// find countries that matches continent selected and print them.
+void Print_Continent(int num_of_c, country_t *c_arr, char *search)
+
 // c_arr quiz asking capital and name
 void Quiz(int num_of_c, country_t* c_arr);
 
@@ -370,11 +382,11 @@ void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr
                 break;
 
             case 2: // All countries
-
+                Search_Country(num_of_c, c_arr);
                  break;
 
             case 3: // Countries by continent
-                
+                Search_Continent(cum_of_c, c_arr);
                 break;            
             
             case 4: // GDP Rank
@@ -394,6 +406,150 @@ void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr
         }
     }
 }
+
+
+// Search Informations by Country
+void Search_Country(int num_of_c, country_t *c_arr){
+    printf("\n\nSelect Country Number \n [ 1.Argentina 2.Australia 3.Brazil 4.Canada 5.China 6.Cambodia 7.Egypt 8.Germany 9.Greece \n10.India 11.Indonesia 12.Japan 13.Korea 14.Mexico 15.New Zealand 16.Morocco 17.Portugal \n18.Peru 19.Republic of Turkey 20.Republic of Kazakhstan 21.South Africa 22.United Kingdom \n23.United States of America] \n: ");
+    scanf("%d", &b);
+
+    if (b == 1)
+        Print_Country(num_of_c, c_arr "Argentina");
+
+    else if (b == 2)
+        Print_Country(num_of_c, c_arr "Australia");
+
+    else if (b == 3)
+        Print_Country(num_of_c, c_arr "Brazil");
+
+    else if (b == 4)
+        Print_Country(num_of_c, c_arr "Canada");
+
+    else if (b == 5)
+        Print_Country(num_of_c, c_arr "China");
+
+    else if (b == 6)
+        Print_Country(num_of_c, c_arr "Cambodia");
+
+    else if (b == 7)
+        Print_Country(num_of_c, c_arr "Egypt");
+
+    else if (b == 8)
+        Print_Country(num_of_c, c_arr "Germany");
+
+    else if (b == 9)
+        Print_Country(num_of_c, c_arr "Greece");
+
+    else if (b == 10)
+        Print_Country(num_of_c, c_arr "India");
+
+    else if (b == 11)
+        Print_Country(num_of_c, c_arr "Indonesia");
+
+    else if (b == 12)
+        Print_Country(num_of_c, c_arr "Japan");
+
+    else if (b == 13)
+        Print_Country(num_of_c, c_arr "Korea");
+
+    else if (b == 14)
+        Print_Country(num_of_c, c_arr "Mexico");
+
+    else if (b == 15)
+        Print_Country(num_of_c, c_arr "New Zealand");
+
+    else if (b == 16)
+        Print_Country(num_of_c, c_arr "Morocco");
+
+    else if (b == 17)
+        Print_Country(num_of_c, c_arr "Portugal");
+
+    else if (b == 18)
+        Print_Country(num_of_c, c_arr "Peru");
+
+    else if (b == 19)
+        Print_Country(num_of_c, c_arr "Republic of Turkey");
+
+    else if (b == 20)
+        Print_Country(num_of_c, c_arr "Republic of Kazakhstan");
+
+    else if (b == 21)
+        Print_Country(num_of_c, c_arr "South Africa");
+
+    else if (b == 22)
+        Print_Country(num_of_c, c_arr "United Kingdom");
+
+    else if (b == 23)
+        Print_Country(num_of_c, c_arr "United States of America");
+
+    else
+        printf("Inappropriate Input.\n");
+}
+
+void Print_Country(int num_of_c, country_t *c_arr, char *search)
+{
+    for (int i = 0, j = 0; i =< num_of_c ; i++)
+    {
+        if (!strcmp(c_arr[i].country_name,search)){
+            printf("Country You Selected: %s \nCapital: %s \nLanguage:", c_arr[i].country_name, c_arr[i].capital_name);
+        while (c_arr[i].language[j + 1] != "\0")
+        {
+            printf(" %s /", c_arr[i].language[j]);
+            j++;
+        }
+        j = 0;
+        printf("\ngdp: %e /nPopulation: %s \nCurrency: %s \nLegislature:", c_arr[i].gdp, c_arr[i].population, c_arr[i].currency);
+        while (c_arr[i].legislature[j + 1] != "\0")
+        {
+            printf(" %s /", c_arr[i].legislature[j]);
+            j++;
+        }
+        printf("\nContinent: %s", c_arr[i].continent);
+        break;
+        }
+    }
+}
+
+//Search Country by Continent
+void Search_Continent(int num_of_c,country_t *c_arr)
+{
+    int a = 0, b = 0;
+
+    printf("\nSelect Continent Number \n[ 1.Asia 2.Europe 3.Austrailia 4.Africa 5.N/America 6.S/America ] : ");
+    scanf("%d", &a);
+
+    if (a == 1)
+        Print_Continent(num_of_c, c_arr "Asia");
+
+    else if (a == 2)
+        Print_Continent(num_of_c, c_arr "Europe");
+
+    else if (a == 3)
+        Print_Continent(num_of_c, c_arr "Australia");
+
+    else if (a == 4)
+        Print_Continent(num_of_c, c_arr "Africa");
+
+    else if (a == 5)
+        Print_Continent(num_of_c, c_arr "North America");
+
+    else if (a == 6)
+        Print_Continent(num_of_c, c_arr "South America");
+
+    else
+        printf("Inappropriate Input.\n");
+}
+
+void Print_Continent(int num_of_c, country_t *c_arr, char *search)
+{
+
+    for (int i = 0; i =< num_of_c ; i++)
+    {
+        if (!strcmp(c_arr[i].continent,search))
+            printf("%s\n", c_arr[i].country_name);
+    }
+}
+
 
 void Quiz(int num_of_c, country_t *c_arr) {
     char answer[128];
