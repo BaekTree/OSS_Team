@@ -32,6 +32,21 @@ void Search_Continent(int num_of_c,country_t *c_arr)
 // find countries that matches continent selected and print them.
 void Print_Continent(int num_of_c, country_t *c_arr, char *search)
 
+//concrete alpabetical sort function
+void sortABC(country_t *ctr, int n);
+
+//concrete GDP sort function
+void sortGDP(country_t *ctr, int n);
+
+//print GDP sort rank
+void printRank(country_t *rk, int n);
+
+//sort countries in GDP ranking
+void rank(country_t *ctr, int n);
+
+//sot countries in alphabetical order
+void ABCD(country_t *ctr, int n);
+
 // c_arr quiz asking capital and name
 void Quiz(int num_of_c, country_t* c_arr);
 
@@ -361,6 +376,8 @@ int json_parser(int length, int token_array_size, tok_t* token_arr, char* data) 
 }
 
 void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr) {
+    ABCD(t_arr,num_of_c);
+
     int option;
     
 	while(1){
@@ -390,7 +407,7 @@ void menu(int num_of_t, int num_of_c, tok_t *t_arr, char *data, country_t *c_arr
                 break;            
             
             case 4: // GDP Rank
-                
+                rank(t_arr,num_of_c);
                 break;
             case 5: // Quiz
                 Quiz(num_of_c, c_arr);
@@ -606,4 +623,50 @@ void Quiz(int num_of_c, country_t *c_arr) {
     }
     printf("\n\nYour score is %d", score);
     return;    
+}
+
+
+//insertionsort by GDP
+void sortGDP(country_t *ctr, int n)
+{
+    int i, j;
+    country_t key;
+    for (i = 1; i < n; i++)
+    {
+        key = ctr[i];
+        j = i - 1;
+        /* Move elements of arr[0..i-1], that are 
+          greater than key, to one position ahead 
+          of their current position */
+        while (j >= 0 && ctr[j].gdp < key.gdp)
+        {
+
+            ctr[j + 1] = ctr[j];
+            j = j - 1;
+        }
+        ctr[j + 1] = key;
+    }
+}
+
+//insertionsort by ABC
+void sortABC(country_t *ctr, int n)
+{
+    int i, j;
+    country_t key;
+    for (i = 1; i < n; i++)
+    {
+        key = ctr[i];
+        j = i - 1;
+
+        /* Move elements of arr[0..i-1], that are 
+          greater than key, to one position ahead 
+          of their current position */
+
+        while (j >= 0 && strcmp(key.country_name, ctr[j].country_name) < 0)
+        {
+            ctr[j + 1] = ctr[j];
+            j = j - 1;
+        }
+        ctr[j + 1] = key;
+    }
 }
